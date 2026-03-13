@@ -198,19 +198,19 @@ export default function CrearistCollage() {
       {/* 1. LAYER: TEXT (BEHIND IMAGES - z-0) */}
       <div
         ref={titleGroupRef}
-        className="relative md:absolute inset-0 flex flex-col items-center md:justify-center justify-start z-0 select-none md:pointer-events-none text-center pt-12 pb-8 md:py-0"
+        className="relative md:absolute inset-0 flex flex-col items-center md:justify-center justify-start z-0 select-none md:pointer-events-none text-center px-4 sm:px-6 md:px-0 pt-8 sm:pt-12 pb-6 sm:pb-8 md:py-0"
       >
-        <span className="text-[10px] md:text-[10px] font-bold tracking-[0.25em] text-black/30 mb-6 uppercase">
+        <span className="text-[9px] sm:text-[10px] md:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.25em] text-black/30 mb-3 sm:mb-6 uppercase">
           TOP RATED GLOBAL DIGITAL AGENCY
         </span>
-        <h2 className="text-[30px] md:text-[clamp(2.5rem,7vw,6rem)] font-bold text-black leading-[1.1] uppercase tracking-[-1.6px] lg:tracking-tight mb-10">
+        <h2 className="text-[clamp(1.6rem,7vw,6rem)] font-bold text-black leading-[1.1] uppercase tracking-[-1px] sm:tracking-[-1.6px] lg:tracking-tight mb-6 sm:mb-10 max-w-[90vw] md:max-w-none">
           BUILDING BRANDS,<br />
           DRIVING GROWTH,<br />
           GROWING BEYOND LIMITS
         </h2>
 
         {/* Scroll Indicator */}
-        <div className="w-10 h-10 rounded-full border border-black/5 flex items-center justify-center bg-white/50 backdrop-blur-sm mt-4 hidden md:flex">
+        <div className="w-10 h-10 rounded-full border border-black/5 flex items-center justify-center bg-white/50 backdrop-blur-sm mt-2 sm:mt-4 hidden md:flex">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M7 13l5 5 5-5M12 6v12" />
           </svg>
