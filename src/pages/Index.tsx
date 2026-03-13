@@ -10,7 +10,7 @@ import { CTASection } from '@/components/CTASection';
 import { Footer } from '@/components/Footer';
 import CrearistCollage from "@/components/CrearistCollage";
 import FuelingYourGrowthWithFreshIdeas from "@/components/FuelingYourGrowthWithFreshIdeas";
-import { TrustedBySection } from '@/components/TrustedBySection';
+
 
 const Index = () => {
   return (
@@ -40,9 +40,7 @@ const Index = () => {
       {/* ================= AWARDS + CTA ================= */}
       <CTASection />
 
-      {/* ================= TRUSTED BY ================= */}
-      <TrustedBySection />
-
+    
       {/* ================= FOOTER ================= */}
       <Footer />
     </main>

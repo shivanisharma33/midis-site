@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowUpRight, Instagram, Linkedin, Twitter } from "lucide-react";
 import { navItems } from "@/data/navigation";
@@ -8,6 +8,7 @@ export const Navigation = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const hideNav = useScrollHide();
+  const [isOnLight, setIsOnLight] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -23,6 +24,34 @@ export const Navigation = () => {
     };
   }, [isMobileMenuOpen]);
 
+  // Detect if navbar is over a light section using data-navbar-theme="dark"
+  const checkTheme = useCallback(() => {
+    const sections = document.querySelectorAll("[data-navbar-theme]");
+    const navHeight = 80;
+
+    let onLight = false;
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      // If the section's top is above the navbar bottom and section's bottom is below navbar top
+      if (rect.top < navHeight && rect.bottom > 0) {
+        const theme = section.getAttribute("data-navbar-theme");
+        if (theme === "dark") {
+          onLight = true;
+        }
+      }
+    });
+
+    setIsOnLight(onLight);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => requestAnimationFrame(checkTheme);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    checkTheme(); // initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [checkTheme]);
+
   return (
     <>
       {/* ================= NAVBAR ================= */}
@@ -33,9 +62,13 @@ export const Navigation = () => {
         ${hideNav ? "-translate-y-full" : "translate-y-0"}`}
       >
         <div className={`
-          relative mx-auto flex items-center justify-between
-          lg:max-w-[1400px] lg:px-6 lg:py-4 lg:bg-transparent lg:mt-0 lg:rounded-none lg:border-none lg:backdrop-blur-none
-          mx-4 mt-4 px-4 py-3 rounded-full bg-black/20 backdrop-blur-md border border-white/10 shadow-lg
+          relative mx-auto flex items-center justify-between transition-all duration-500
+          lg:max-w-[1400px] lg:px-6 lg:py-4 lg:mt-0 lg:rounded-none lg:border-none
+          mx-4 mt-4 px-4 py-3 rounded-full shadow-lg
+          ${isOnLight
+            ? "bg-black/80 backdrop-blur-md border border-black/10"
+            : "bg-black/20 backdrop-blur-md border border-white/10"
+          }
         `}>
           {/* ================= LOGO (LEFT) ================= */}
           <Link to="/" className="flex items-center z-50 relative">
@@ -46,8 +79,10 @@ export const Navigation = () => {
             />
           </Link>
 
-          {/* ================= CENTER WHITE PILL ================= */}
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center bg-white rounded-full px-6 py-2 gap-6 shadow-lg">
+          {/* ================= CENTER PILL ================= */}
+          <div className={`hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center rounded-full px-6 py-2 gap-6 shadow-lg transition-all duration-500 ${
+            isOnLight ? "bg-white" : "bg-white"
+          }`}>
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -72,7 +107,11 @@ export const Navigation = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300"
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                isOnLight
+                  ? "border-white/30 text-white hover:bg-white hover:text-black"
+                  : "border-white/20 text-white hover:bg-white hover:text-black"
+              }`}
             >
               <Instagram size={18} />
             </a>
@@ -80,7 +119,11 @@ export const Navigation = () => {
               href="https://twitter.com"
               target="_blank"
               rel="noreferrer"
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300"
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                isOnLight
+                  ? "border-white/30 text-white hover:bg-white hover:text-black"
+                  : "border-white/20 text-white hover:bg-white hover:text-black"
+              }`}
             >
               <Twitter size={18} />
             </a>
@@ -88,7 +131,11 @@ export const Navigation = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noreferrer"
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-300"
+              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                isOnLight
+                  ? "border-white/30 text-white hover:bg-white hover:text-black"
+                  : "border-white/20 text-white hover:bg-white hover:text-black"
+              }`}
             >
               <Linkedin size={18} />
             </a>
@@ -97,7 +144,11 @@ export const Navigation = () => {
           {/* ================= MOBILE MENU BUTTON ================= */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-white z-50 relative focus:outline-none bg-white/10 rounded-full backdrop-blur-sm border border-white/10 active:scale-95 transition-all duration-200"
+            className={`lg:hidden p-2 z-50 relative focus:outline-none rounded-full backdrop-blur-sm active:scale-95 transition-all duration-200 border ${
+              isOnLight
+                ? "text-white bg-white/10 border-white/20"
+                : "text-white bg-white/10 border-white/10"
+            }`}
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>

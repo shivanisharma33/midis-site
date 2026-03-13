@@ -78,6 +78,7 @@ export const CTASection = () => {
   return (
     <section
       ref={sectionRef}
+      data-navbar-theme="dark"
       className="relative min-h-[60svh] md:min-h-[100svh] bg-white overflow-hidden flex items-center"
     >
       {/* 👇 text-black added here */}

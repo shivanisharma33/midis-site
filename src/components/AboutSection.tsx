@@ -51,6 +51,7 @@ const AboutSection: React.FC = () => {
   return (
     <section
       ref={containerRef}
+      data-navbar-theme="dark"
       className="
         w-full
         min-h-0

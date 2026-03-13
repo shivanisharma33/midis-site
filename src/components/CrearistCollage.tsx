@@ -193,7 +193,7 @@ export default function CrearistCollage() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-screen md:h-screen bg-white overflow-x-hidden md:overflow-hidden flex flex-col md:block">
+    <section ref={containerRef} data-navbar-theme="dark" className="relative w-full min-h-screen md:h-screen bg-white overflow-x-hidden md:overflow-hidden flex flex-col md:block">
 
       {/* 1. LAYER: TEXT (BEHIND IMAGES - z-0) */}
       <div

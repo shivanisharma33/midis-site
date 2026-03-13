@@ -78,7 +78,7 @@ const FuelingYourGrowthWithFreshIdeas: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full">
+    <section ref={containerRef} data-navbar-theme="dark" className="w-full">
 
       {/* MAIN FLEX */}
       <div className="flex flex-col md:flex-row w-full">

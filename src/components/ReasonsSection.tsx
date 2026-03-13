@@ -124,7 +124,7 @@ export const ReasonsSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white overflow-hidden">
+    <section ref={sectionRef} data-navbar-theme="dark" className="bg-white overflow-hidden">
       {/* ================= HEADING ================= */}
       <div className="py-24 md:py-0 md:min-h-[70vh] flex items-center">
         <div className="max-w-7xl w-full px-4 sm:px-6 md:px-16 lg:px-24">
