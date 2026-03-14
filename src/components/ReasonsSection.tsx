@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -40,11 +40,10 @@ export const ReasonsSection: React.FC = () => {
   const bgRefs = useRef<(HTMLDivElement | null)[]>([]);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const activeIndex = useRef(0);
+  const [activeMobileIndex, setActiveMobileIndex] = useState<number | null>(0);
 
   useEffect(() => {
     if (!sectionRef.current || !switchRef.current) return;
-
-    const isMobile = window.innerWidth < 768;
 
     const ctx = gsap.context(() => {
       /* ================= HEADING ANIMATION ================= */
@@ -71,52 +70,56 @@ export const ReasonsSection: React.FC = () => {
       );
 
       /* ================= SWITCH SCROLL ================= */
-      const backgrounds = bgRefs.current.filter(Boolean) as HTMLDivElement[];
-      const cards = itemRefs.current.filter(Boolean) as HTMLDivElement[];
+      const mm = gsap.matchMedia();
 
-      gsap.set(backgrounds, { opacity: 0, scale: 1.1, filter: "blur(10px)" });
-      gsap.set(backgrounds[0], { opacity: 1, scale: 1, filter: "blur(0px)" });
-      cards[0]?.classList.add("active");
+      mm.add("(min-width: 768px)", () => {
+        const backgrounds = bgRefs.current.filter(Boolean) as HTMLDivElement[];
+        const cards = itemRefs.current.filter(Boolean) as HTMLDivElement[];
 
-      ScrollTrigger.create({
-        trigger: switchRef.current,
-        start: "top top",
-        end: `+=${items.length * (isMobile ? 80 : 120)}%`, // Increased distance for mobile smoothness
-        scrub: 1, 
-        pin: true,
-        anticipatePin: 1,
+        gsap.set(backgrounds, { opacity: 0, scale: 1.1, filter: "blur(10px)" });
+        gsap.set(backgrounds[0], { opacity: 1, scale: 1, filter: "blur(0px)" });
+        cards[0]?.classList.add("active");
 
-        onUpdate: (self) => {
-          const index = Math.min(
-            items.length - 1,
-            Math.floor(self.progress * (items.length - 0.01))
-          );
+        ScrollTrigger.create({
+          trigger: switchRef.current,
+          start: "top top",
+          end: `+=${items.length * 120}%`,
+          scrub: 1, 
+          pin: true,
+          anticipatePin: 1,
 
-          if (index === activeIndex.current) return;
-          
-          const prevIndex = activeIndex.current;
-          activeIndex.current = index;
+          onUpdate: (self) => {
+            const index = Math.min(
+              items.length - 1,
+              Math.floor(self.progress * (items.length - 0.01))
+            );
 
-          // Background transition
-          gsap.to(backgrounds[index], {
-            opacity: 1,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 0.6,
-            ease: "power2.out",
-          });
+            if (index === activeIndex.current) return;
+            
+            const prevIndex = activeIndex.current;
+            activeIndex.current = index;
 
-          gsap.to(backgrounds[prevIndex], {
-            opacity: 0,
-            scale: 1.1,
-            filter: "blur(10px)",
-            duration: 0.6,
-            ease: "power2.inOut",
-          });
+            // Background transition
+            gsap.to(backgrounds[index], {
+              opacity: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.6,
+              ease: "power2.out",
+            });
 
-          cards.forEach((card) => card.classList.remove("active"));
-          cards[index]?.classList.add("active");
-        },
+            gsap.to(backgrounds[prevIndex], {
+              opacity: 0,
+              scale: 1.1,
+              filter: "blur(10px)",
+              duration: 0.6,
+              ease: "power2.inOut",
+            });
+
+            cards.forEach((card) => card.classList.remove("active"));
+            cards[index]?.classList.add("active");
+          },
+        });
       });
     }, sectionRef);
 
@@ -142,8 +145,8 @@ export const ReasonsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* ================= SWITCH SECTION ================= */}
-      <div ref={switchRef} className="relative">
+      {/* ================= DESKTOP SWITCH SECTION ================= */}
+      <div ref={switchRef} className="relative hidden md:block">
         {/* GRID */}
         <div
           className="
@@ -201,6 +204,72 @@ export const ReasonsSection: React.FC = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* ================= MOBILE ACCORDION SECTION ================= */}
+      <div className="md:hidden flex flex-col w-full border-t border-gray-100 bg-white">
+        {items.map((item, i) => {
+          const isActive = activeMobileIndex === i;
+          return (
+            <div key={i} className="border-b border-gray-100 flex flex-col">
+              <button
+                onClick={() => setActiveMobileIndex(isActive ? null : i)}
+                className={`text-left p-6 w-full flex flex-col transition-colors duration-300 ${
+                  isActive ? "bg-[#fafafa]" : "bg-white"
+                }`}
+              >
+                <div className="flex justify-between items-center w-full">
+                  <p
+                    className={`text-[10px] font-bold transition-colors duration-300 ${
+                      isActive ? "text-black" : "text-gray-300"
+                    }`}
+                  >
+                    {item.number}
+                  </p>
+                  <div
+                    className={`transform transition-transform duration-300 text-gray-400 ${
+                      isActive ? "rotate-180" : ""
+                    }`}
+                  >
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.5 4.5L6 8L9.5 4.5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="text-[17px] font-black tracking-tight whitespace-pre-line leading-[1.2] text-black mt-4 uppercase">
+                  {item.title}
+                </h3>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  isActive ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <div className="relative w-full h-[300px]">
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Overlay for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* ================= ACTIVE STYLE ================= */}
