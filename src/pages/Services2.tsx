@@ -42,7 +42,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[clamp(2.5rem,8vw,9rem)] leading-[0.9] font-normal uppercase tracking-tight" 
+            className="text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight" 
             style={{ fontFamily: 'Anton, sans-serif' }}
           >
             DISCOVER THE CREATIVITY &
@@ -51,7 +51,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,8vw,9rem)] leading-[0.9] font-normal uppercase tracking-tight mt-2" 
+            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-2" 
             style={{ fontFamily: 'Anton, sans-serif' }}
           >
             <span>OUR</span>

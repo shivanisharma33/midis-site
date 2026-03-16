@@ -139,8 +139,8 @@ const HeroSection: React.FC = () => {
               style={{
                 fontFamily: "Anton, sans-serif",
                 fontWeight: 800,
-                fontSize: "clamp(100px, 29vw, 500px)",
-                letterSpacing: "-5px",
+                fontSize: "clamp(60px, 20vw, 450px)",
+                letterSpacing: "normal",
                 lineHeight: 1,
                 textAlign: "center",
                 WebkitTextFillColor: revealProgress >= 50 ? "#ffffff" : "transparent",
