@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { motion, useScroll, useTransform, AnimatePresence, useMotionValue, useSpring, MotionValue } from "framer-motion";
+import { useEffect, useRef, useCallback, useMemo } from "react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 
@@ -16,166 +16,60 @@ import { Navigation } from "@/components/Navigation";
  * ============================================================= */
 
 /* ================= SPRING CONFIGS FOR 60FPS ================= */
-const smoothSpring = { damping: 30, stiffness: 200, mass: 0.5 };
 const snappySpring = { damping: 25, stiffness: 300, mass: 0.3 };
 const gentleSpring = { damping: 40, stiffness: 100, mass: 1 };
 
 /* ================= SECTION 1: HERO (OPTIMIZED) ================= */
 const HeroSection = () => {
-  const [progress, setProgress] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const animationFrame = useRef<number | null>(null);
-  const lastDelta = useRef(0);
-
-  // Touch support
-  const touchStart = useRef(0);
-  const touchDelta = useRef(0);
-
-  // GPU-accelerated spring animations
-  const progressSpring = useSpring(progress, smoothSpring);
-
-  // Derived transforms using springs for 60fps
-  const width = useTransform(progressSpring, [0, 100], ["60%", "100%"]);
-  const height = useTransform(progressSpring, [0, 100], ["60vh", "100vh"]);
-  const borderRadius = useTransform(progressSpring, [0, 100], [40, 0]);
-  const imgScale = useTransform(progressSpring, [0, 100], [1, 1.2]);
-
-  const handleScroll = useCallback((delta: number) => {
-    if (isComplete && window.scrollY > 10) return;
-
-    const direction = delta > 0 ? 1 : -1;
-
-    if (!isComplete || (isComplete && window.scrollY <= 0 && direction === -1)) {
-      if ((progress < 100 && direction === 1) || (progress > 0 && direction === -1)) {
-        // Use RAF for smooth updates
-        if (animationFrame.current) {
-          cancelAnimationFrame(animationFrame.current);
-        }
-
-        animationFrame.current = requestAnimationFrame(() => {
-          setProgress(prev => {
-            const next = Math.min(Math.max(prev + direction * 4, 0), 100);
-            if (next >= 100) setIsComplete(true);
-            if (next < 100) setIsComplete(false);
-            return next;
-          });
-        });
-
-        return true; // Prevent default
-      }
-    }
-    return false;
-  }, [progress, isComplete]);
-
-  useEffect(() => {
-    progressSpring.set(progress);
-  }, [progress, progressSpring]);
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      const shouldPrevent = handleScroll(e.deltaY);
-      if (shouldPrevent) {
-        e.preventDefault();
-      }
-    };
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStart.current = e.touches[0].clientY;
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      const delta = touchStart.current - e.touches[0].clientY;
-      touchDelta.current = delta;
-
-      const shouldPrevent = handleScroll(delta);
-      if (shouldPrevent) {
-        e.preventDefault();
-      }
-
-      touchStart.current = e.touches[0].clientY;
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-      if (animationFrame.current) {
-        cancelAnimationFrame(animationFrame.current);
-      }
-    };
-  }, [handleScroll]);
-
   return (
-    <section ref={sectionRef} className="relative h-screen bg-[#0C0E12] overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center p-4 md:p-0">
-        <motion.div
-          style={{
-            width,
-            height,
-            borderRadius,
-            willChange: "transform, width, height, border-radius"
-          }}
-          className="relative z-10 bg-black overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] origin-center"
-        >
-          <motion.img
-            src="https://cdn.prod.website-files.com/67a1ba0a889270647730e779/68079e60d8c8c72fd621dfd8_Video-p-1600.webp"
-            alt="Hero"
-            style={{ scale: imgScale, willChange: "transform" }}
-            className="w-full h-full object-cover opacity-90"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40" />
-
-          {/* Content Overlay - Responsive */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6">
-            <h1 className="text-[15vw] sm:text-[14vw] md:text-[12vw] font-black leading-none tracking-tighter text-white uppercase select-none drop-shadow-2xl">
-              SERVICE
-            </h1>
-            <p className="max-w-sm sm:max-w-md md:max-w-xl mt-4 sm:mt-6 text-xs sm:text-sm md:text-lg text-white/80 font-medium leading-relaxed uppercase tracking-widest">
-              We are a passionate creative agency with over 15 years experience
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-6 sm:mt-10 px-6 sm:px-10 py-3 sm:py-5 bg-white text-black rounded-full font-black text-[10px] sm:text-xs tracking-widest uppercase hover:bg-black hover:text-white transition-colors flex items-center gap-2 sm:gap-3 shadow-2xl"
-            >
-              Get Started <ArrowUpRight size={14} strokeWidth={3} className="sm:w-4 sm:h-4" />
-            </motion.button>
-          </div>
-
-          {/* Vertical Text - Hidden on mobile */}
-          <div className="absolute top-1/2 right-6 md:right-12 -translate-y-1/2 hidden lg:block">
-            <p className="uppercase tracking-[0.5em] text-[10px] font-black text-white/30 rotate-90 origin-right whitespace-nowrap">
-              Follow Us On Social Media
-            </p>
-          </div>
-        </motion.div>
+    <section className="relative min-h-[100vh] flex items-center pt-32 pb-24 px-6 overflow-hidden bg-black text-white">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="" 
+          alt="Hero Background" 
+          className="w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
       </div>
 
-      {/* Scroll Indicator */}
-      <AnimatePresence>
-        {progress < 100 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 sm:gap-4 z-20"
+      <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
+
+
+        {/* Main Heading */}
+        <div className="text-center relative">
+          <motion.h1 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-[clamp(2.5rem,8vw,9rem)] leading-[0.9] font-normal uppercase tracking-tight" 
+            style={{ fontFamily: 'Anton, sans-serif' }}
           >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-px h-8 sm:h-12 bg-gradient-to-b from-white to-transparent opacity-40"
-            />
-            <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/40">
-              {progress > 0 ? `${Math.round(progress)}%` : "Scroll to Reveal"}
-            </p>
+            DISCOVER THE CREATIVITY &
+          </motion.h1>
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,8vw,9rem)] leading-[0.9] font-normal uppercase tracking-tight mt-2" 
+            style={{ fontFamily: 'Anton, sans-serif' }}
+          >
+            <span>OUR</span>
+            <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
+              <img 
+                src="/abstract_oval.png" 
+                alt="Abstract Decorative" 
+                className="w-full h-full object-cover scale-150 animate-pulse-slow"
+              />
+            </div>
+            <span>EXPERTISE</span>
           </motion.div>
-        )}
-      </AnimatePresence>
+
+
+        </div>
+
+      
+      </div>
     </section>
   );
 };
@@ -321,6 +215,42 @@ const servicesData = [
     image: "https://cdn.prod.website-files.com/691024ccc3cf40dbe1a814d3/6911ce75f727815d6221f9bf_1753014996382-p-1080.webp",
     description: "Building robust, scalable digital solutions",
     color: "#00BBF9"
+  },
+  {
+    name: "GRAPHIC DESIGN",
+    image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=2070&auto=format&fit=crop",
+    description: "Visual identities and creative assets that make your brand unmistakable",
+    color: "#F94144"
+  },
+  {
+    name: "VIDEO EDITING",
+    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
+    description: "High-impact video content tailored for maximum social engagement",
+    color: "#F3722C"
+  },
+  {
+    name: "CONTENT WRITING",
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=2066&auto=format&fit=crop",
+    description: "Persuasive storytelling and SEO-optimized copy that drives conversions",
+    color: "#F8961E"
+  },
+  {
+    name: "YOUTUBE MANAGEMENT",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop",
+    description: "End-to-end channel growth strategy, optimization, and content planning",
+    color: "#F9844A"
+  },
+  {
+    name: "SEO OPTIMIZATION",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    description: "Data-driven search strategies to dominate rankings and organic traffic",
+    color: "#F9C74F"
+  },
+  {
+    name: "E-COMMERCE STRATEGY",
+    image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2070&auto=format&fit=crop",
+    description: "Comprehensive scaling roadmaps for Shopify and global online stores",
+    color: "#90BE6D"
   },
 ];
 
