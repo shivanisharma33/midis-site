@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
@@ -26,34 +27,84 @@ const CaseStudy: React.FC = () => {
     <>
       <Navigation />
 
-      <main className="min-h-screen bg-black text-white">
-        <div className="mx-auto max-w-6xl px-4 pt-28 pb-24 lg:px-6">
-          {/* HERO / INTRO */}
-          <section className="mb-16">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-neutral-900 via-black to-black px-6 py-10 sm:px-10 sm:py-14">
-              <div className="pointer-events-none absolute inset-0 opacity-70">
-                <div className="absolute -top-32 right-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(249,115,22,0.45),_transparent_70%)] blur-2xl" />
-                <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.35),_transparent_70%)] blur-2xl" />
+      <main className="bg-[#050505] min-h-screen text-white overflow-x-hidden selection:bg-orange-600 selection:text-white">
+        {/* NEW PREMIUM CASE STUDY HERO */}
+        <section className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden bg-black text-white">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
+              alt="Case Study Background" 
+              className="w-full h-full object-cover opacity-30 grayscale"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-[#050505]" />
+          </div>
+
+          <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
+              {/* Main Heading */}
+              <div className="text-center relative">
+                <motion.h1 
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-[clamp(2.5rem,10vw,12rem)] leading-[0.85] font-normal uppercase tracking-tight" 
+                  style={{ fontFamily: 'Anton, sans-serif' }}
+                >
+                  TRANSFORMING
+                </motion.h1>
+                <motion.div 
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,10vw,12rem)] leading-[0.85] font-normal uppercase tracking-tight mt-1" 
+                  style={{ fontFamily: 'Anton, sans-serif' }}
+                >
+                  <span>VISIONS</span>
+                  <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
+                    <img 
+                      src="/abstract_oval.png" 
+                      alt="Impact Decorative" 
+                      className="w-full h-full object-cover scale-150 animate-pulse-slow"
+                    />
+                  </div>
+                  <span>& IMPACT</span>
+                </motion.div>
               </div>
 
-              <div className="relative space-y-5 max-w-3xl">
-                <p className="text-xs uppercase tracking-[0.3em] text-neutral-400">
-                  Explore our work
-                </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
-                  Stories of transformation through{" "}
-                  <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent">
-                    design, branding, SEO & AI-driven solutions.
-                  </span>
-                </h1>
-                <p className="text-sm sm:text-base text-neutral-300 max-w-2xl">
-                  At Midis, we do more than deliver services — we craft
-                  experiences, solve real business problems, and amplify brands.
-                  These case studies are journeys from challenge to breakthrough.
-                </p>
-              </div>
-            </div>
-          </section>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="max-w-3xl mx-auto text-lg md:text-xl text-white/50 leading-relaxed font-medium mt-12 mb-8 px-4"
+              >
+                Stories of transformation through design, branding, SEO & AI-driven solutions. At Midis, we do more than deliver services — we craft experiences.
+              </motion.p>
+            </motion.div>
+
+            {/* scroll hint */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 1 }}
+              className="mt-16 flex justify-center"
+            >
+              <motion.div 
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5"
+              >
+                <div className="w-1 h-2 bg-orange-500 rounded-full" />
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="mx-auto max-w-7xl px-4 py-24 lg:px-6">
 
           {/* FEATURED PROJECTS GRID */}
           <section className="mb-16">

@@ -44,40 +44,79 @@ const WorkPage = () => {
     }, []);
 
     return (
-        <main className="bg-black min-h-screen">
+        <main className="bg-[#050505] min-h-screen text-white overflow-x-hidden selection:bg-orange-600 selection:text-white">
             <Navigation />
 
-            {/* Header */}
-            <section className="pt-36 pb-12 px-6">
-                <div className="max-w-[1400px] mx-auto">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-2xl font-medium text-white"
+            {/* NEW PREMIUM HERO SECTION */}
+            <section className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden bg-black text-white">
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <img 
+                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop" 
+                        alt="Work Background" 
+                        className="w-full h-full object-cover opacity-40 grayscale"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-[#050505]" />
+                </div>
+
+                <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1 }}
+                        className="text-center"
                     >
-                        Featured Works
-                    </motion.h1>
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="text-[clamp(2.5rem,8vw,10rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight" 
+                            style={{ fontFamily: 'Anton, sans-serif' }}
+                        >
+                            SHOWCASING OUR BEST
+                        </motion.h1>
+                        <motion.div 
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,8vw,10rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-2" 
+                            style={{ fontFamily: 'Anton, sans-serif' }}
+                        >
+                            <span>WORKS</span>
+                            <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
+                                <img 
+                                    src="/abstract_oval.png" 
+                                    alt="Work Decorative" 
+                                    className="w-full h-full object-cover scale-150 animate-pulse-slow"
+                                />
+                            </div>
+                            <span>& IMPACT</span>
+                        </motion.div>
+
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                            className="max-w-2xl mx-auto text-lg md:text-xl text-white/60 leading-relaxed font-medium mt-12 mb-8 px-4"
+                        >
+                            A curated selection of our most impactful projects, where strategy meets creativity to drive measurable results.
+                        </motion.p>
+                    </motion.div>
+
                     {/* scroll hint */}
                     <motion.div
-                        className="mt-6"
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.4 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.2, duration: 1 }}
+                        className="mt-16 flex justify-center"
                     >
-                        <svg
-                            className="w-6 h-6 text-white mx-auto"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
+                        <motion.div 
+                            animate={{ y: [0, 8, 0] }}
+                            transition={{ repeat: Infinity, duration: 2 }}
+                            className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5"
                         >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M19 9l-7 7-7-7"
-                            />
-                        </svg>
+                            <div className="w-1 h-2 bg-orange-500 rounded-full" />
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>

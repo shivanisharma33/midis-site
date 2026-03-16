@@ -26,11 +26,11 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="" 
+          src="https://images.unsplash.com/photo-1581291518062-c9a79e7e0f34?q=80&w=2070&auto=format&fit=crop" 
           alt="Hero Background" 
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-40 grayscale"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black" />
       </div>
 
       <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">

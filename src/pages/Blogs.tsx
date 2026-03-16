@@ -5,84 +5,82 @@ import { Footer } from '@/components/Footer';
 
 const Blog = () => {
   return (
-    <>
+    <main className="bg-[#050505] min-h-screen text-white overflow-x-hidden selection:bg-orange-600 selection:text-white">
       <Navigation />
 
-      {/* ================= HERO BLOG SECTION - MOBILE FIRST ================= */}
-      <section className="w-full bg-white overflow-hidden">
-        {/* Mobile-first container with responsive padding */}
-        <div className="container-responsive section-spacing-lg">
-          {/* Grid: Stack on mobile, 2 columns on desktop */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+      {/* ================= NEW PREMIUM BLOG HERO ================= */}
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden bg-black text-white">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop" 
+            alt="Blogs Background" 
+            className="w-full h-full object-cover opacity-30 grayscale"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-[#050505]" />
+        </div>
 
-            {/* LEFT CONTENT - Always shows first on mobile */}
-            <div className="order-1">
-              {/* Responsive heading: Mobile-first scaling */}
-              <motion.h1
-                initial={{ opacity: 0, y: -80 }}
+        <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            {/* Main Heading */}
+            <div className="text-center relative">
+              <motion.h1 
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.9,
-                  ease: "easeOut",
-                }}
-                className="text-heading-lg text-black"
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-[clamp(2.5rem,10vw,12rem)] leading-[0.85] font-normal uppercase tracking-tight" 
+                style={{ fontFamily: 'Anton, sans-serif' }}
               >
-                Global Stories <br className="hidden sm:block" /> & Articles
+                STORIES &
               </motion.h1>
-
-              {/* Responsive paragraph */}
-              <motion.p
-                initial={{ opacity: 0, x: -80 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.3,
-                  ease: "easeOut",
-                }}
-                className="mt-4 sm:mt-6 md:mt-8 text-body text-gray-600 max-w-lg"
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,10vw,12rem)] leading-[0.85] font-normal uppercase tracking-tight mt-1" 
+                style={{ fontFamily: 'Anton, sans-serif' }}
               >
-                A place to read, write, and deepen your understanding
-              </motion.p>
-            </div>
-
-            {/* RIGHT STACKED CARDS - Shows second on mobile */}
-            <div className="order-2 relative flex justify-center lg:justify-end">
-              {/* Background cards - Hidden on mobile, visible on tablet+ */}
-              <div className="hidden sm:block absolute top-8 right-8 w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-[5/6] rounded-2xl md:rounded-3xl bg-white shadow-xl rotate-[6deg]" />
-              <div className="hidden sm:block absolute top-4 right-4 w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] aspect-[5/6] rounded-2xl md:rounded-3xl bg-white shadow-xl rotate-[3deg]" />
-
-              {/* Main card - Responsive sizing */}
-              <div className="relative z-10 w-full max-w-[340px] sm:max-w-[380px] md:max-w-[440px] bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-5 md:p-6">
-                <div className="relative">
-                  <img
-                    src="https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/6731ad04586bcad28450e232_card-thumb-1-p-500.jpg"
-                    className="w-full aspect-[4/3] object-cover rounded-xl md:rounded-2xl"
-                    alt="Featured blog article"
-                    loading="lazy"
+                <span>GLOBAL</span>
+                <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
+                  <img 
+                    src="/abstract_oval.png" 
+                    alt="Articles Decorative" 
+                    className="w-full h-full object-cover scale-150 animate-pulse-slow"
                   />
-                  <span className="absolute top-3 left-3 md:top-4 md:left-4 bg-white text-black text-xs sm:text-sm font-semibold px-3 py-1 md:px-4 rounded-full shadow">
-                    Social Issues
-                  </span>
                 </div>
-
-                <div className="mt-4 md:mt-5">
-                  <h3 className="text-heading-sm text-black">
-                    The importance of A/B testing your website for optimal results
-                  </h3>
-
-                  <div className="flex flex-wrap gap-3 sm:gap-5 mt-3 md:mt-4 text-caption text-gray-500">
-                    <span>📅 November 11, 2024</span>
-                    <span>⏱ 8 mins</span>
-                  </div>
-
-                  <button className="mt-4 md:mt-6 bg-black text-white px-5 py-2.5 md:px-6 md:py-3 rounded-full text-xs sm:text-sm hover:bg-gray-800 transition-colors">
-                    Read more →
-                  </button>
-                </div>
-              </div>
+                <span>ARTICLES</span>
+              </motion.div>
             </div>
 
-          </div>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="max-w-2xl mx-auto text-lg md:text-xl text-white/50 leading-relaxed font-medium mt-12 mb-8 px-4"
+            >
+              A place to read, write, and deepen your understanding of the digital landscape.
+            </motion.p>
+          </motion.div>
+
+          {/* scroll hint */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            className="mt-16 flex justify-center"
+          >
+            <motion.div 
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+              className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5"
+            >
+              <div className="w-1 h-2 bg-orange-500 rounded-full" />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -277,7 +275,7 @@ const Blog = () => {
       </section>
 
       <Footer />
-    </>
+    </main>
   );
 };
 

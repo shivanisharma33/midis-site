@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { ArrowUpRight, Plus, ChevronDown } from "lucide-react";
+import { Plus, ChevronDown } from "lucide-react";
 import { ScrollingVideoZoom } from "@/components/ScrollingVideoZoom";
 
 /* ================= TYPES & DATA ================= */
@@ -29,86 +29,64 @@ const partners = ["FORBES", "TECHCRUNCH", "WIRED", "NYT", "Awwwards", "Dribbble"
 /* ================= COMPONENTS ================= */
 
 const AboutHero = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
   return (
-    <section className="relative min-h-screen bg-[#0C0E12] flex flex-col items-center justify-start pt-40 overflow-hidden text-center px-6">
-      <motion.h1
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="text-[14vw] md:text-[11vw] font-black text-white leading-[0.85] tracking-tighter uppercase z-10"
-      >
-        GET TO <br />
-        <span className="inline-flex items-center gap-4">
-          KNOW US
-          <div className="w-[8vw] h-[8vw] bg-white rounded-2xl flex items-center justify-center -rotate-12 hover:rotate-0 transition-transform duration-500 cursor-pointer">
-            <ArrowUpRight className="text-black w-[5vw] h-[5vw]" />
-          </div>
-        </span>
-      </motion.h1>
-
-      <div className="mt-16 flex flex-col items-center gap-4 z-10">
-        <span className="text-white/40 text-[10px] uppercase font-bold tracking-[0.4em]">Scroll Down</span>
-        <div className="w-[1px] h-20 bg-gradient-to-b from-white/40 to-transparent" />
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-40 px-6 overflow-hidden bg-black text-white">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
+          alt="About Background" 
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/90" />
       </div>
 
-      {/* Panoramic Curved Collage from Reference */}
-      <div className="relative w-full mt-32 px-4 select-none mb-10 overflow-visible">
-        <div className="max-w-[1800px] mx-auto flex items-center justify-center -space-x-4 lg:-space-x-8 lg:scale-110 xl:scale-125 origin-center">
+      <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {/* Main Heading */}
+          <div className="text-center relative">
+            <motion.h1 
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-[clamp(2.5rem,10vw,12rem)] leading-[0.85] font-normal uppercase tracking-tight" 
+              style={{ fontFamily: 'Anton, sans-serif' }}
+            >
+              CRAFTING FUTURE
+            </motion.h1>
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,10vw,12rem)] leading-[0.85] font-normal uppercase tracking-tight mt-1" 
+              style={{ fontFamily: 'Anton, sans-serif' }}
+            >
+              <span>SINCE</span>
+              <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
+                <img 
+                  src="/abstract_oval.png" 
+                  alt="About Decorative" 
+                  className="w-full h-full object-cover scale-150 animate-pulse-slow"
+                />
+              </div>
+              <span>2024</span>
+            </motion.div>
+          </div>
 
-          {/* Left: Gold Bar */}
-          <motion.div
-            initial={isMobile ? { x: 0, opacity: 1, rotate: -8 } : { x: -100, opacity: 0, rotate: -15 }}
-            whileInView={isMobile ? { x: 0, opacity: 1, rotate: -8 } : { x: 0, opacity: 1, rotate: -8 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-            className="w-1/3 aspect-[4/5] rounded-[30px] lg:rounded-[50px] overflow-hidden shadow-2xl z-0 transform-gpu origin-right border-4 border-[#0C0E12]"
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="mt-16 flex flex-col items-center gap-4"
           >
-            <img
-              src="/images/Futuristic Portrait.webp"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              alt="Visual 1"
-            />
+            <span className="text-white/40 text-[10px] uppercase font-bold tracking-[0.4em]">Scroll Down</span>
+            <div className="w-[1px] h-20 bg-gradient-to-b from-white/40 to-transparent" />
           </motion.div>
-
-          {/* Center: Mask */}
-          <motion.div
-            initial={isMobile ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-            whileInView={isMobile ? { scale: 1, opacity: 1 } : { scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-            className="w-2/5 aspect-[4/5] rounded-[40px] lg:rounded-[60px] overflow-hidden z-20 shadow-[0_50px_100px_rgba(0,0,0,0.8)] border-4 border-[#0C0E12]"
-          >
-            <img
-              src="/images/Virtual Reality Immersion.png"
-              className="w-full h-full object-cover"
-              alt="Visual 2"
-            />
-          </motion.div>
-
-          {/* Right: Green Swirl */}
-          <motion.div
-            initial={isMobile ? { x: 0, opacity: 1, rotate: 8 } : { x: 100, opacity: 0, rotate: 15 }}
-            whileInView={isMobile ? { x: 0, opacity: 1, rotate: 8 } : { x: 0, opacity: 1, rotate: 8 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-            className="w-1/3 aspect-[4/5] rounded-[30px] lg:rounded-[50px] overflow-hidden shadow-2xl z-0 transform-gpu origin-left border-4 border-[#0C0E12]"
-          >
-            <img
-              src="/images/Neon Aesthetic Portrait.png"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              alt="Visual 3"
-            />
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

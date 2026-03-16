@@ -109,63 +109,79 @@ export default function Contact() {
       <Navigation />
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative min-h-[70vh] bg-[#0C0E12] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-orange-600/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px]" />
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-black text-white">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070&auto=format&fit=crop" 
+            alt="Contact Background" 
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/90" />
         </div>
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 text-center px-6"
-        >
-          <span className="text-orange-500 text-[11px] font-black uppercase tracking-[0.3em] mb-6 block">
-            Get In Touch
-          </span>
-
-          <h1 className="text-[12vw] md:text-[10vw] lg:text-[8vw] font-black text-white leading-[0.9] tracking-tighter uppercase mb-8">
-            LET'S CREATE
-            <br />
-            <span className="inline-flex items-center gap-4">
-              TOGETHER
-              <motion.div
-                animate={{ rotate: [0, 10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="w-[8vw] h-[8vw] max-w-[80px] max-h-[80px] bg-orange-600 rounded-2xl flex items-center justify-center"
-              >
-                <ArrowUpRight className="text-white w-[4vw] h-[4vw] max-w-[40px] max-h-[40px]" />
-              </motion.div>
-            </span>
-          </h1>
-
-          <p className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-            Have a project in mind? We'd love to hear about it. Let's discuss how we can help bring your vision to life.
-          </p>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 flex flex-col items-center gap-3"
-        >
-          <span className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-bold">Scroll</span>
+        <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent"
-          />
-        </motion.div>
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            {/* Main Heading */}
+            <div className="text-center relative mb-12">
+              <motion.h1 
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-[clamp(2.5rem,10vw,11rem)] leading-[0.85] font-normal uppercase tracking-tight" 
+                style={{ fontFamily: 'Anton, sans-serif' }}
+              >
+                LET'S CREATE
+              </motion.h1>
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,10vw,11rem)] leading-[0.85] font-normal uppercase tracking-tight mt-1" 
+                style={{ fontFamily: 'Anton, sans-serif' }}
+              >
+                <span>YOUR</span>
+                <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
+                  <img 
+                    src="/abstract_oval.png" 
+                    alt="Contact Decorative" 
+                    className="w-full h-full object-cover scale-150 animate-pulse-slow"
+                  />
+                </div>
+                <span>FUTURE</span>
+              </motion.div>
+            </div>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="max-w-2xl mx-auto text-lg md:text-xl text-white/60 leading-relaxed font-medium mb-12 px-4"
+            >
+              Have a project in mind? We'd love to hear about it. Let's discuss how we can help bring your vision to life.
+            </motion.p>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            className="mt-16 flex justify-center"
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5"
+            >
+              <div className="w-1 h-2 bg-orange-500 rounded-full" />
+            </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ================= CONTACT INFO CARDS ================= */}

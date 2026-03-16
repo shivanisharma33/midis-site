@@ -128,37 +128,41 @@ const HeroSection: React.FC = () => {
         {/* CENTER HERO TEXT */}
         <div className="flex-1 flex items-center justify-center px-8">
           <div className="text-center w-full mx-auto">
-            <h1
-              className={`
-                pt-24 md:pt-40 lg:pt-44
-                leading-none
-                transition-all duration-[1000ms] ease-out
-                ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-                uppercase
-              `}
-              style={{
-                fontFamily: "Anton, sans-serif",
-                fontWeight: 800,
-                fontSize: "clamp(60px, 20vw, 450px)",
-                letterSpacing: "normal",
-                lineHeight: 1,
-                textAlign: "center",
-                WebkitTextFillColor: revealProgress >= 50 ? "#ffffff" : "transparent",
-                backgroundImage: revealProgress >= 50
-                  ? "none"
-                  : "linear-gradient(90deg, #fff, #ffffff45 72%, #fff0)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "#ffffff",
-                transform: "translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)",
-                transformStyle: "preserve-3d",
-              }}
-            >
-              MIDIS
-            </h1>
+            <div className={`transition-all duration-[1000ms] ease-out ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+              <h1
+                className="leading-none uppercase flex flex-col items-center justify-center pt-24 md:pt-40 lg:pt-44"
+                style={{
+                  fontFamily: "Anton, sans-serif",
+                  fontWeight: 800,
+                  fontSize: "clamp(60px, 20vw, 450px)",
+                  letterSpacing: "normal",
+                  lineHeight: 0.9,
+                  textAlign: "center",
+                  WebkitTextFillColor: revealProgress >= 50 ? "#ffffff" : "transparent",
+                  backgroundImage: revealProgress >= 50
+                    ? "none"
+                    : "linear-gradient(90deg, #fff, #ffffff45 72%, #fff0)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "#ffffff",
+                }}
+              >
+                <div className="flex items-center gap-x-4">
+                  <span>MID</span>
+                  <div className="relative inline-block w-[0.8em] h-[0.55em] overflow-hidden rounded-full ring-2 ring-white/10 shadow-2xl vertical-middle mt-[0.1em]">
+                    <img 
+                      src="/abstract_oval.png" 
+                      alt="Brand Decorative" 
+                      className="w-full h-full object-cover scale-150 animate-pulse-slow"
+                    />
+                  </div>
+                  <span>IS</span>
+                </div>
+              </h1>
+            </div>
             <p
               className={`
-                mt-6 md:mt-8 text-base md:text-xl lg:text-2xl text-white/90 font-light tracking-wide
+                mt-6 md:mt-8 text-base md:text-xl lg:text-2xl text-white/90 font-light tracking-widest uppercase
                 transition-all duration-1000 delay-500
                 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
               `}

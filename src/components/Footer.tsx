@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -81,50 +82,86 @@ export const Footer = () => {
     
 
       {/* ================= MAIN GRID ================= */}
-      <div className="footer-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 border-t border-white/10 pt-16 pb-10">
+      <div className="footer-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-white/10 pt-16 pb-10">
 
+        {/* TOP SERVICES */}
         <div className="footer-col">
-          <h3 className="text-lg font-semibold mb-4">Company</h3>
-          <ul className="space-y-3 text-gray-400 text-sm">
-            <li><a href="/about" className="hover:text-white transition">About Us</a></li>
-            <li><a href="/work" className="hover:text-white transition">Our Work</a></li>
-            <li><a href="/services2" className="hover:text-white transition">Our Services</a></li>
-            <li><a href="/contact" className="hover:text-white transition">Contact Us</a></li>
+          <h3 className="text-lg font-black uppercase tracking-tighter mb-6">Our Top Service</h3>
+          <ul className="space-y-3 text-gray-400 text-sm font-medium">
+            <li><a href="/services" className="hover:text-orange-500 transition-colors">Web Development</a></li>
+            <li><a href="/services" className="hover:text-orange-500 transition-colors">Web Designing</a></li>
+            <li><a href="/services" className="hover:text-orange-500 transition-colors">Graphic Design</a></li>
+            <li><a href="/services" className="hover:text-orange-500 transition-colors">Content Writing</a></li>
+            <li><a href="/services" className="hover:text-orange-500 transition-colors">Video Editing</a></li>
+            <li><a href="/services" className="hover:text-orange-500 transition-colors">YouTube Management</a></li>
+            <li><a href="/services" className="hover:text-orange-500 transition-colors">Search Engine optimization</a></li>
           </ul>
         </div>
 
+        {/* QUICK LINKS */}
         <div className="footer-col">
-          <h3 className="text-lg font-semibold mb-4">Support</h3>
-          <ul className="space-y-3 text-gray-400 text-sm">
-            <li className="hover:text-white transition">Help Center</li>
-            <li className="hover:text-white transition">Privacy Policy</li>
-            <li className="hover:text-white transition">Terms & Conditions</li>
-            <li className="hover:text-white transition">Contact Support</li>
+          <h3 className="text-lg font-black uppercase tracking-tighter mb-6">Quick Links</h3>
+          <ul className="space-y-3 text-gray-400 text-sm font-medium">
+            <li><a href="/contact" className="hover:text-orange-500 transition-colors">Contact Us</a></li>
+            <li><a href="/services" className="hover:text-orange-500 transition-colors">Services</a></li>
+            <li><a href="/about" className="hover:text-orange-500 transition-colors">About Us</a></li>
+            <li><a href="/blogs" className="hover:text-orange-500 transition-colors">Blogs</a></li>
+            <li><a href="/team" className="hover:text-orange-500 transition-colors">Team</a></li>
+            <li><a href="/terms" className="hover:text-orange-500 transition-colors">Terms & Conditions</a></li>
+            <li><a href="/privacy" className="hover:text-orange-500 transition-colors">Privacy Policy</a></li>
           </ul>
         </div>
 
+        {/* CONTACT INFO */}
         <div className="footer-col">
-          <h3 className="text-lg font-semibold mb-4">Contact</h3>
-          <ul className="space-y-3 text-gray-400 text-sm">
-            <li>Email: info@example.com</li>
-            <li>Phone: (888) 123 4560</li>
-            <li>Address: New Delhi, India</li>
+          <h3 className="text-lg font-black uppercase tracking-tighter mb-6">Contact</h3>
+          <ul className="space-y-4 text-gray-400 text-sm font-medium">
+            <li className="flex flex-col gap-1">
+              <span className="text-xs uppercase text-white/40 tracking-widest">Email</span>
+              <a href="mailto:Hello@midis.in" className="text-white hover:text-orange-500 transition-colors">Hello@midis.in</a>
+            </li>
+            <li className="flex flex-col gap-1">
+              <span className="text-xs uppercase text-white/40 tracking-widest">Phone</span>
+              <div className="flex flex-col gap-1 text-white">
+                 <span className="flex items-center gap-2">🇺🇸 +1 (862) 295-0117</span>
+                 <span className="flex items-center gap-2">🇮🇳 +91 97793 20626</span>
+              </div>
+            </li>
+            <li className="flex flex-col gap-1">
+              <span className="text-xs uppercase text-white/40 tracking-widest">Address</span>
+              <span className="text-white leading-relaxed">
+                1st Floor, E 279, Industrial Area,<br />
+                Sector 75, S.A.S Nagar, Punjab<br />
+                160055
+              </span>
+            </li>
           </ul>
         </div>
 
+        {/* FOLLOW US */}
         <div className="footer-col">
-          <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-          <div className="flex items-center gap-6 text-gray-400 text-sm">
-            <a href="#" className="hover:text-white transition">Instagram</a>
-            <a href="#" className="hover:text-white transition">LinkedIn</a>
-            <a href="#" className="hover:text-white transition">Twitter</a>
+          <h3 className="text-lg font-black uppercase tracking-tighter mb-6">Follow Us</h3>
+          <div className="flex flex-wrap gap-4">
+            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+              <Instagram size={18} className="group-hover:scale-110 transition-transform" />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+              <Linkedin size={18} className="group-hover:scale-110 transition-transform" />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+              <Twitter size={18} className="group-hover:scale-110 transition-transform" />
+            </a>
+            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+              <Facebook size={18} className="group-hover:scale-110 transition-transform" />
+            </a>
           </div>
         </div>
       </div>
 
       {/* ================= COPYRIGHT ================= */}
-      <div className="footer-copy border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} Your Company Name. All Rights Reserved.
+      <div className="footer-copy border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-[10px] uppercase tracking-[0.2em] font-bold">
+        <span>© {new Date().getFullYear()} Midis. All Rights Reserved.</span>
+        <span className="text-white/20 italic">Innovative Solutions for Modern Challenges</span>
       </div>
     </footer>
   );
