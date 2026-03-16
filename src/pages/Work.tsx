@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
@@ -17,39 +17,24 @@ const projects = Array.from({ length: IMAGE_COUNT }, (_, idx) => ({
     image: `/${encodedFolder}/${idx + 1}.jpg`,
 }));
 
-const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => {
-    const cardRef = useRef(null);
-    const isInView = useInView(cardRef, { once: true, margin: "-50px" });
-    const { scrollYProgress } = useScroll({
-        target: cardRef,
-        offset: ["start end", "end start"]
-    });
-
-    const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
-    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1, 0.92]);
-    const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [8, 0, -8]);
-
+const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
     return (
-        <motion.div
-            ref={cardRef}
-            initial={{ opacity: 0, y: 80 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: index * 0.12, ease: [0.33, 1, 0.68, 1] }}
-            style={{ scale, rotateX, transformPerspective: 1000 }}
-            className="w-full max-w-[900px] mx-auto mb-6"
-        >
-            <div className="relative overflow-hidden rounded-xl aspect-[16/9] cursor-pointer">
-                <motion.div style={{ y }} className="absolute inset-0">
-                    <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                    />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/40" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-white/30" />
+        <div className="w-full max-w-[1400px] mx-auto mb-8 sm:mb-12 md:mb-20 px-4 sm:px-0 group">
+            <div className="relative overflow-hidden cursor-pointer bg-[#0A0A0A]">
+                {/* Natural image sizing so absolutely nothing is ever cut off */}
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-auto transform transition-transform duration-1000 ease-out group-hover:scale-105"
+                />
+                
+
+
+                {/* Elegant bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/20" />
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white transform origin-left scale-x-0 transition-transform duration-700 ease-out group-hover:scale-x-100" />
             </div>
-        </motion.div>
+        </div>
     );
 };
 
@@ -63,8 +48,8 @@ const WorkPage = () => {
             <Navigation />
 
             {/* Header */}
-            <section className="pt-36 pb-10 px-6">
-                <div className="max-w-[900px] mx-auto">
+            <section className="pt-36 pb-12 px-6">
+                <div className="max-w-[1400px] mx-auto">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -98,9 +83,9 @@ const WorkPage = () => {
             </section>
 
             {/* Projects */}
-            <section className="px-6 pb-20">
-                {projects.map((project, index) => (
-                    <ProjectCard key={project.title} project={project} index={index} />
+            <section className="px-0 sm:px-6 pb-20">
+                {projects.map((project) => (
+                    <ProjectCard key={project.title} project={project} />
                 ))}
             </section>
 

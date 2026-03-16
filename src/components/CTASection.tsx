@@ -52,23 +52,8 @@ export const CTASection = () => {
       });
 
       mm.add("(max-width: 767px)", () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=100%", // Much shorter 1-scroll on mobile
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-          },
-        });
-
-        tl.to(imageWrap, {
-          width: "150vw",
-          height: "150vh",
-          borderRadius: "0px",
-          ease: "power2.inOut",
-        });
+        // Just empty here to allow normal scrolling without pin logic
+        // The image is hidden via CSS (.hidden md:inline-flex)
       });
     }, section);
 
@@ -82,39 +67,42 @@ export const CTASection = () => {
       className="relative min-h-[60svh] md:min-h-[100svh] bg-white overflow-hidden flex items-center"
     >
       {/* 👇 text-black added here */}
-      <div className="relative z-10 container mx-auto px-6 lg:px-12 text-center text-black">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center text-black">
 
         {/* 👇 color changed to black */}
-        <p className="text-xs tracking-widest uppercase mb-10 text-black">
+        <p className="text-xs sm:text-sm tracking-widest uppercase mb-8 sm:mb-10 text-black">
           JOIN US TODAY!
         </p>
 
         {/* LINE 1 */}
-        <div className="flex justify-center mb-6">
-          <span className="cta-text text-[clamp(30px,6vw,5rem)] font-extrabold overflow-hidden tracking-[-1.6px] lg:tracking-tighter">
-            <span className="inline-block">PARTNER WITH</span>
+        <div className="flex flex-wrap justify-center mb-2 sm:mb-6">
+          <span className="cta-text text-[clamp(42px,11vw,5rem)] md:text-[clamp(40px,6vw,5rem)] font-extrabold overflow-hidden tracking-[-1.2px] md:tracking-[-1.6px] lg:tracking-tighter leading-[1.1]">
+            <span className="inline-block">LET&apos;S BUILD</span>
           </span>
         </div>
 
         {/* LINE 2 */}
-        <div className="flex justify-center items-center gap-6 mb-6">
-          <span className="cta-text text-[clamp(30px,6vw,5rem)] font-extrabold overflow-hidden tracking-[-1.6px] lg:tracking-tighter">
-            <span className="inline-block">EXPERIENCED</span>
+        <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 mb-2 sm:mb-6 px-2">
+          <span className="cta-text text-[clamp(42px,11vw,5rem)] md:text-[clamp(40px,6vw,5rem)] font-extrabold overflow-hidden tracking-[-1.2px] md:tracking-[-1.6px] lg:tracking-tighter leading-[1.1]">
+            <span className="inline-block">SOMETHING</span>
           </span>
 
-          {/* INLINE IMAGE */}
-          <span className="relative inline-flex w-28 h-16 lg:w-36 lg:h-20 shrink-0 align-middle">
+          {/* INLINE IMAGE - Hidden on mobile */}
+          <span className="hidden md:inline-flex relative w-20 h-10 sm:w-28 sm:h-16 lg:w-36 lg:h-20 shrink-0 align-middle">
             <span
               ref={imageWrapRef}
               className="
                 absolute
-                top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                top-1/2 left-1/2
                 w-full h-full
                 rounded-full
                 overflow-hidden
                 will-change-transform
-                z-50
               "
+              style={{
+                transform: "translate(-50%, -50%)",
+                zIndex: 50,
+              }}
             >
               <img
                 src="/images/testimonial-bg.webp"
@@ -126,15 +114,15 @@ export const CTASection = () => {
             </span>
           </span>
 
-          <span className="cta-text text-[clamp(30px,6vw,5rem)] font-extrabold overflow-hidden tracking-[-1.6px] lg:tracking-tighter">
-            <span className="inline-block">DESIGNER</span>
+          <span className="cta-text text-[clamp(42px,11vw,5rem)] md:text-[clamp(40px,6vw,5rem)] font-extrabold overflow-hidden tracking-[-1.2px] md:tracking-[-1.6px] lg:tracking-tighter leading-[1.1]">
+            <span className="inline-block">AMAZING</span>
           </span>
         </div>
 
         {/* LINE 3 */}
-        <div className="flex justify-center mb-14">
-          <span className="cta-text text-[clamp(30px,6vw,5rem)] font-extrabold overflow-hidden tracking-[-1.6px] lg:tracking-tighter">
-            <span className="inline-block">PARTNER WITH</span>
+        <div className="flex flex-wrap justify-center mb-10 sm:mb-14">
+          <span className="cta-text text-[clamp(42px,11vw,5rem)] md:text-[clamp(40px,6vw,5rem)] font-extrabold overflow-hidden tracking-[-1.2px] md:tracking-[-1.6px] lg:tracking-tighter leading-[1.1]">
+            <span className="inline-block">TOGETHER</span>
           </span>
         </div>
 

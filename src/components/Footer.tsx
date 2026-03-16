@@ -78,16 +78,7 @@ export const Footer = () => {
       className="w-full bg-[#0C0E12] text-white pt-28 pb-12 px-6 md:px-16 lg:px-24"
     >
       {/* ================= TOP CTA ================= */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-20 gap-10">
-        <h1 className="footer-title text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight max-w-[700px]">
-          LET’S BUILD SOMETHING AMAZING TOGETHER
-        </h1>
-
-        <button className="footer-btn bg-white text-black px-10 py-5 rounded-full font-semibold text-sm tracking-wider hover:bg-gray-200 transition-all flex items-center gap-2">
-          CONTACT US
-          <span className="text-lg">↗</span>
-        </button>
-      </div>
+    
 
       {/* ================= MAIN GRID ================= */}
       <div className="footer-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 border-t border-white/10 pt-16 pb-10">
