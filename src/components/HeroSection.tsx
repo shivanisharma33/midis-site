@@ -147,17 +147,7 @@ const HeroSection: React.FC = () => {
                   color: "#ffffff",
                 }}
               >
-                <div className="flex items-center gap-x-4">
-                  <span>MID</span>
-                  <div className="relative inline-block w-[0.8em] h-[0.55em] overflow-hidden rounded-full ring-2 ring-white/10 shadow-2xl vertical-middle mt-[0.1em]">
-                    <img 
-                      src="/abstract_oval.png" 
-                      alt="Brand Decorative" 
-                      className="w-full h-full object-cover scale-150 animate-pulse-slow"
-                    />
-                  </div>
-                  <span>IS</span>
-                </div>
+                MIDIS
               </h1>
             </div>
             <p

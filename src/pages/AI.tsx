@@ -14,7 +14,7 @@ const AIHero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="" 
+          src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" 
           alt="AI Hero Background" 
           className="w-full h-full object-cover opacity-30"
         />
