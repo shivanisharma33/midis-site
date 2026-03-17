@@ -66,11 +66,12 @@ export const CrazyCursorEnhanced = () => {
 
     // Mouse move handler
     const handleMouseMove = (e: MouseEvent) => {
+      if (isHidden) setIsHidden(false);
       lastX = mouseX;
       lastY = mouseY;
       mouseX = e.clientX;
       mouseY = e.clientY;
-
+      
       // Update dot position immediately
       cursorDot.style.left = `${mouseX}px`;
       cursorDot.style.top = `${mouseY}px`;
@@ -86,10 +87,14 @@ export const CrazyCursorEnhanced = () => {
 
       // Check if hovering over interactive elements
       const target = e.target as HTMLElement;
+      if (!target) return;
+
       const isInteractive =
         target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
-        target.onclick !== null ||
+        target.closest('a') !== null ||
+        target.closest('button') !== null ||
+        (target as any).onclick !== null ||
         target.classList.contains('cursor-pointer') ||
         window.getComputedStyle(target).cursor === 'pointer';
 
@@ -250,19 +255,27 @@ export const CrazyCursorEnhanced = () => {
 
       {/* Hide default cursor and add styles */}
       <style>{`
-        /* Hide default cursor on desktop */
-        @media (min-width: 768px) {
-          * {
+        /* Hide default cursor on desktop/mouse systems */
+        @media (pointer: fine) {
+          body:not(.show-default-cursor) * {
             cursor: none !important;
+          }
+          
+          /* Allow showing default cursor if needed */
+          .show-default-cursor * {
+            cursor: auto !important;
           }
         }
 
-        /* Mobile: show default cursor */
-        @media (max-width: 767px) {
+        /* Mobile/Touch: show default cursor and hide custom components */
+        @media (pointer: coarse) {
           .cursor-dot,
           .cursor-outline,
           canvas {
             display: none !important;
+          }
+          * {
+            cursor: auto !important;
           }
         }
 

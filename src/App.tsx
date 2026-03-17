@@ -36,8 +36,6 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-
-
         {/* Toast & Notifications */}
         <Toaster />
         <Sonner />
