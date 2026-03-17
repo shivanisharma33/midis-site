@@ -4,6 +4,9 @@ import { useEffect, useRef, useCallback, useMemo } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { useState } from "react";
+import { ServicePopup } from "@/components/services/ServicePopup";
 
 /* ================= PERFORMANCE OPTIMIZATIONS =================
  * 1. GPU-accelerated transforms only (transform, opacity)
@@ -25,9 +28,9 @@ const HeroSection = () => {
     <section className="relative min-h-[100vh] flex items-center pt-32 pb-24 px-6 overflow-hidden bg-black text-white">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1581291518062-c9a79e7e0f34?q=80&w=2070&auto=format&fit=crop" 
-          alt="Hero Background" 
+        <img
+          src="https://images.unsplash.com/photo-1581291518062-c9a79e7e0f34?q=80&w=2070&auto=format&fit=crop"
+          alt="Hero Background"
           className="w-full h-full object-cover opacity-40 grayscale"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black" />
@@ -38,27 +41,27 @@ const HeroSection = () => {
 
         {/* Main Heading */}
         <div className="text-center relative">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight" 
+            className="text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight"
             style={{ fontFamily: 'Anton, sans-serif' }}
           >
             DISCOVER THE CREATIVITY &
           </motion.h1>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-2" 
+            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-2"
             style={{ fontFamily: 'Anton, sans-serif' }}
           >
             <span>OUR</span>
             <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
-              <img 
-                src="/abstract_oval.png" 
-                alt="Abstract Decorative" 
+              <img
+                src="/abstract_oval.png"
+                alt="Abstract Decorative"
                 className="w-full h-full object-cover scale-150 animate-pulse-slow"
               />
             </div>
@@ -68,7 +71,7 @@ const HeroSection = () => {
 
         </div>
 
-      
+
       </div>
     </section>
   );
@@ -258,11 +261,13 @@ const servicesData = [
 const StackingCard = ({
   service,
   index,
-  totalCards
+  totalCards,
+  onExplore
 }: {
   service: typeof servicesData[0];
   index: number;
   totalCards: number;
+  onExplore: (service: typeof servicesData[0]) => void;
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -364,6 +369,7 @@ const StackingCard = ({
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => onExplore(service)}
               className="self-start px-8 py-4 rounded-full font-bold uppercase tracking-widest text-[11px] text-white border-2 border-white/20 hover:bg-white hover:text-black transition-colors flex items-center gap-3"
             >
               Explore Service <ArrowUpRight size={16} strokeWidth={3} />
@@ -381,7 +387,7 @@ const StackingCard = ({
   );
 };
 
-const ExploreServices = () => {
+const ExploreServices = ({ onExplore }: { onExplore: (service: typeof servicesData[0]) => void }) => {
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "center center"] });
 
@@ -436,6 +442,7 @@ const ExploreServices = () => {
               service={service}
               index={index}
               totalCards={servicesData.length}
+              onExplore={onExplore}
             />
           ))}
         </div>
@@ -644,68 +651,33 @@ const CTACollage = () => {
 };
 
 /* ================= FOOTER (RESPONSIVE) ================= */
-const CustomFooter = () => {
-  return (
-    <footer className="bg-[#0C0E12] pt-20 sm:pt-32 lg:pt-40 pb-8 sm:pb-12 px-4 sm:px-6 text-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24 lg:gap-32 mb-20 sm:mb-32 lg:mb-40">
-          <div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-8 sm:mb-12">
-              Let's Work <br /> Together
-            </h2>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 sm:px-12 py-4 sm:py-6 border-2 border-white/20 rounded-full font-black uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white hover:text-black transition-colors flex items-center gap-3 sm:gap-4 group"
-            >
-              Get In Touch <ArrowRight className="group-hover:translate-x-2 transition-transform w-4 h-4 sm:w-5 sm:h-5" />
-            </motion.button>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
-            <div className="space-y-6 sm:space-y-8">
-              <div>
-                <p className="text-[9px] sm:text-[10px] uppercase tracking-widest font-black text-white/40 mb-2 sm:mb-3">Email</p>
-                <p className="text-lg sm:text-xl font-bold">hello@midis.com</p>
-              </div>
-              <div>
-                <p className="text-[9px] sm:text-[10px] uppercase tracking-widest font-black text-white/40 mb-2 sm:mb-3">Phone</p>
-                <p className="text-lg sm:text-xl font-bold">+1 (888) 123 4567</p>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <p className="text-[9px] sm:text-[10px] uppercase tracking-widest font-black text-white/40 mb-4 sm:mb-6">Socials</p>
-              <ul className="space-y-3 sm:space-y-4">
-                {["Facebook", "Instagram", "Linkedin", "Dribbble"].map(s => (
-                  <li key={s} className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter hover:text-orange-600 cursor-pointer transition-colors">
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="pt-6 sm:pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
-          <p className="text-[10px] sm:text-[11px] font-bold tracking-widest text-white/30 uppercase text-center sm:text-left">
-            © 2026 Midis Creative Agency. All Rights Reserved.
-          </p>
-          <div className="flex gap-6 sm:gap-8">
-            {["Privacy", "Terms", "Cookies"].map(l => (
-              <span key={l} className="text-[10px] sm:text-[11px] font-bold tracking-widest text-white/30 uppercase cursor-pointer hover:text-white transition-colors">{l}</span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
 
 /* ================= PAGE EXPORT ================= */
 export default function Services2() {
+  const [selectedService, setSelectedService] = useState<typeof servicesData[0] | null>(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Lock scroll when popup is open
+  useEffect(() => {
+    if (isPopupOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isPopupOpen]);
+
+  const handleExplore = (service: typeof servicesData[0]) => {
+    setSelectedService(service);
+    setIsPopupOpen(true);
+  };
 
   return (
     <main className="bg-[#0C0E12] w-full min-h-screen text-black font-sans selection:bg-orange-600 selection:text-white overflow-x-hidden">
@@ -713,11 +685,22 @@ export default function Services2() {
       <HeroSection />
       <ExperienceSection />
       <ParallaxSection />
-      <ExploreServices />
+      <ExploreServices onExplore={handleExplore} />
       <MarqueeSection />
       <ProcessSection />
       <CTACollage />
-      <CustomFooter />
+      <Footer />
+
+      <ServicePopup 
+        isOpen={isPopupOpen} 
+        onClose={() => setIsPopupOpen(false)} 
+        service={selectedService ? {
+          name: selectedService.name,
+          description: selectedService.description,
+          image: selectedService.image,
+          color: selectedService.color
+        } : null}
+      />
     </main>
   );
 }

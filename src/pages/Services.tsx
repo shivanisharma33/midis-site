@@ -30,9 +30,9 @@ export default function Services() {
       <section className="relative min-h-[85vh] flex items-center pt-32 pb-20 px-6 overflow-hidden bg-black text-white">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop" 
-            alt="Hero Background" 
+          <img
+            src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop"
+            alt="Hero Background"
             className="w-full h-full object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-[#050505]" />
@@ -43,31 +43,31 @@ export default function Services() {
 
           {/* Main Heading */}
           <div className="text-center relative">
-            <motion.h1 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight" 
-            style={{ fontFamily: 'Anton, sans-serif' }}
-          >
-            DISCOVER THE CREATIVITY &
-          </motion.h1>
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-2" 
-            style={{ fontFamily: 'Anton, sans-serif' }}
-          >    <span>OUR</span>
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight"
+              style={{ fontFamily: 'Anton, sans-serif' }}
+            >
+              DISCOVER THE CREATIVITY &
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-2"
+              style={{ fontFamily: 'Anton, sans-serif' }}
+            >    <span>OUR</span>
               <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
-                <img 
-                  src="/abstract_oval.png" 
-                  alt="Abstract Decorative" 
+                <img
+                  src="/abstract_oval.png"
+                  alt="Abstract Decorative"
                   className="w-full h-full object-cover scale-150 animate-pulse-slow"
                 />
               </div>
-            <span>EXPERTISE</span>
-          </motion.div>
+              <span>EXPERTISE</span>
+            </motion.div>
 
 
           </div>
@@ -79,63 +79,63 @@ export default function Services() {
       {/* Re-transition text color for the rest of the page if it's dark */}
       <div className="bg-[#050505] pt-20">
 
-      {/* SERVICES SECTION - Mobile first */}
-      <section ref={servicesRef} className="section-spacing">
-        <div className="container-responsive max-w-6xl">
-          {/* Heading - Mobile first */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12 animate-fade-in-up">
-            <div>
-              <h2 className="text-heading-md font-semibold">
-                Everything you need under one roof.
-              </h2>
-              <p className="text-body text-white/75 mt-2 max-w-xl">
-                Mix and match services or build an end-to-end growth stack. We
-                design, develop, write, run ads, and integrate AI—so you don't
-                have to juggle multiple agencies.
+        {/* SERVICES SECTION - Mobile first */}
+        <section ref={servicesRef} className="section-spacing">
+          <div className="container-responsive max-w-6xl">
+            {/* Heading - Mobile first */}
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12 animate-fade-in-up">
+              <div>
+                <h2 className="text-heading-md font-semibold">
+                  Everything you need under one roof.
+                </h2>
+                <p className="text-body text-white/75 mt-2 max-w-xl">
+                  Mix and match services or build an end-to-end growth stack. We
+                  design, develop, write, run ads, and integrate AI—so you don't
+                  have to juggle multiple agencies.
+                </p>
+              </div>
+            </div>
+
+            {/* Category tabs with staggered animation */}
+            <CategoryTabs activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
+
+            {/* SERVICES GRID with enhanced animations */}
+            <ServiceGrid services={filteredServices} />
+          </div>
+        </section>
+
+        {/* AI STRIP - Mobile first */}
+        <section className="section-spacing-sm bg-gradient-to-r from-[#12040f] via-[#080814] to-[#04050a] border-y border-white/10 animate-fade-in">
+          <div className="container-responsive max-w-6xl flex-stack-to-row items-center justify-between">
+            <div className="max-w-xl animate-slide-in-left">
+              <p className="text-xs uppercase tracking-[0.18em] text-orange-200/80 mb-2">
+                AI at Midis
+              </p>
+              <h3 className="text-2xl sm:text-3xl font-semibold mb-2">
+                Ready to add real AI to your marketing stack?
+              </h3>
+              <p className="text-sm sm:text-base text-white/80">
+                We don't just plug in tools. We help you design AI use-cases,
+                connect them to your workflows, and measure impact—whether that's
+                chatbots, content engines, or full OpenAI API integrations.
               </p>
             </div>
+
+            <div className="flex flex-wrap gap-3 text-xs animate-slide-in-right">
+              <span className="px-3 py-1 rounded-full bg-black/40 border border-white/20 text-white/80 hover:border-orange-400/60 hover:bg-black/60 transition-all duration-300 cursor-pointer hover:scale-105">
+                ChatGPT Assistants
+              </span>
+              <span className="px-3 py-1 rounded-full bg-black/40 border border-white/20 text-white/80 hover:border-orange-400/60 hover:bg-black/60 transition-all duration-300 cursor-pointer hover:scale-105">
+                AI Lead Capture
+              </span>
+              <span className="px-3 py-1 rounded-full bg-black/40 border border-white/20 text-white/80 hover:border-orange-400/60 hover:bg-black/60 transition-all duration-300 cursor-pointer hover:scale-105">
+                Automated Reporting
+              </span>
+            </div>
           </div>
+        </section>
 
-          {/* Category tabs with staggered animation */}
-          <CategoryTabs activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
-
-          {/* SERVICES GRID with enhanced animations */}
-          <ServiceGrid services={filteredServices} />
-        </div>
-      </section>
-
-      {/* AI STRIP - Mobile first */}
-      <section className="section-spacing-sm bg-gradient-to-r from-[#12040f] via-[#080814] to-[#04050a] border-y border-white/10 animate-fade-in">
-        <div className="container-responsive max-w-6xl flex-stack-to-row items-center justify-between">
-          <div className="max-w-xl animate-slide-in-left">
-            <p className="text-xs uppercase tracking-[0.18em] text-orange-200/80 mb-2">
-              AI at Midis
-            </p>
-            <h3 className="text-2xl sm:text-3xl font-semibold mb-2">
-              Ready to add real AI to your marketing stack?
-            </h3>
-            <p className="text-sm sm:text-base text-white/80">
-              We don't just plug in tools. We help you design AI use-cases,
-              connect them to your workflows, and measure impact—whether that's
-              chatbots, content engines, or full OpenAI API integrations.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-3 text-xs animate-slide-in-right">
-            <span className="px-3 py-1 rounded-full bg-black/40 border border-white/20 text-white/80 hover:border-orange-400/60 hover:bg-black/60 transition-all duration-300 cursor-pointer hover:scale-105">
-              ChatGPT Assistants
-            </span>
-            <span className="px-3 py-1 rounded-full bg-black/40 border border-white/20 text-white/80 hover:border-orange-400/60 hover:bg-black/60 transition-all duration-300 cursor-pointer hover:scale-105">
-              AI Lead Capture
-            </span>
-            <span className="px-3 py-1 rounded-full bg-black/40 border border-white/20 text-white/80 hover:border-orange-400/60 hover:bg-black/60 transition-all duration-300 cursor-pointer hover:scale-105">
-              Automated Reporting
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
+        <Footer />
       </div>
     </main>
   );

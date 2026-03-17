@@ -25,11 +25,10 @@ export const ServiceCard = ({ service, index }: ServiceCardProps) => {
           </div>
 
           <span
-            className={`text-[9px] sm:text-[10px] px-2 py-0.5 sm:py-1 rounded-full border transition-all duration-300 group-hover:scale-105 ${
-              service.category === "ai"
+            className={`text-[9px] sm:text-[10px] px-2 py-0.5 sm:py-1 rounded-full border transition-all duration-300 group-hover:scale-105 ${service.category === "ai"
                 ? "border-orange-400/80 bg-orange-500/15 text-orange-200"
                 : "border-white/25 bg-white/10 text-white/70"
-            }`}
+              }`}
           >
             {service.category === "ai" ? "AI Service" : "Core Service"}
           </span>
