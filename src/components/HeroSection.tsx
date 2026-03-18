@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const HeroSection: React.FC = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
@@ -159,40 +160,32 @@ const HeroSection: React.FC = () => {
             >
               Innovative Solutions for Modern Challenges
             </p>
+
+            {/* CTA BUTTONS */}
+            <div
+              className={`
+                mt-8 md:mt-10 flex flex-wrap gap-4 justify-center
+                transition-all duration-1000 delay-700
+                ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
+              `}
+            >
+              <Link
+                to="/contact"
+                className="px-8 py-4 bg-white text-black font-black uppercase tracking-widest text-[15px] rounded-full hover:bg-orange-600 hover:text-white transition-all duration-500 shadow-xl"
+              >
+                Start a Project
+              </Link>
+              <Link
+                to="/work"
+                className="px-8 py-4 bg-transparent text-white font-black border-2 border-white/20 uppercase tracking-widest text-[15px] rounded-full hover:bg-white hover:text-black transition-all duration-500"
+              >
+                View Our Work
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* SCROLL INDICATOR - shows when animation not complete */}
-      {!animationComplete && (
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 z-20">
-          {/* <span className="text-xs uppercase tracking-widest">
-            {revealProgress > 0 ? "Scroll up to reverse" : "Scroll to reveal"}
-          </span> */}
-          {/* <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-            <div className="w-1 h-2 bg-white/60 rounded-full animate-bounce" />
-          </div> */}
-          {/* Progress bar */}
-          <div className="w-20 h-1 bg-white/20 rounded-full overflow-hidden mt-2">
-            <div
-              className="h-full bg-white/80 transition-all duration-200"
-              style={{ width: `${revealProgress}%` }}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* DECORATIVE ELEMENTS */}
-      <div
-        className={`absolute top-1/2 left-8 w-px h-24 bg-gradient-to-b from-transparent via-white/30 to-transparent
-          transition-all duration-1000 delay-1000
-          ${mounted ? "opacity-100" : "opacity-0"}`}
-      />
-      <div
-        className={`absolute top-1/2 right-8 w-px h-24 bg-gradient-to-b from-transparent via-white/30 to-transparent
-          transition-all duration-1000 delay-1000
-          ${mounted ? "opacity-100" : "opacity-0"}`}
-      />
     </section>
   );
 };

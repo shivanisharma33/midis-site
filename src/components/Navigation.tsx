@@ -163,7 +163,7 @@ export const Navigation = () => {
           }`}
       >
         {/* Mobile Menu Content */}
-        <div className="flex flex-col items-center justify-center flex-1 w-full gap-8">
+        <div className="flex flex-col items-center justify-center flex-1 w-full gap-8 pt-32">
           {navItems.map((item, index) => (
             <Link
               key={item.label}

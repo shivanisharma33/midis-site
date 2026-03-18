@@ -22,30 +22,27 @@ import { ServicePopup } from "@/components/services/ServicePopup";
 const snappySpring = { damping: 25, stiffness: 300, mass: 0.3 };
 const gentleSpring = { damping: 40, stiffness: 100, mass: 1 };
 
-/* ================= SECTION 1: HERO (OPTIMIZED) ================= */
+/* ================= SECTION 1: HERO (REVERTED) ================= */
 const HeroSection = () => {
   return (
     <section className="relative min-h-[100vh] flex items-center pt-32 pb-24 px-6 overflow-hidden bg-black text-white">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image - Clear view as requested */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1581291518062-c9a79e7e0f34?q=80&w=2070&auto=format&fit=crop"
-          alt="Hero Background"
-          className="w-full h-full object-cover opacity-40 grayscale"
+          src="/images/6936354b56d45fd81bf94509_Sections-p-1600.jpg"
+          alt="AI Hero Background"
+          className="w-full h-full object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black" />
       </div>
 
       <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
-
-
         {/* Main Heading */}
         <div className="text-center relative">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight"
+            className="text-[clamp(2rem,7vw,9.5rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight"
             style={{ fontFamily: 'Anton, sans-serif' }}
           >
             DISCOVER THE CREATIVITY &
@@ -54,7 +51,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2rem,7vw,9rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-2"
+            className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2rem,7vw,9.5rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-2"
             style={{ fontFamily: 'Anton, sans-serif' }}
           >
             <span>OUR</span>
@@ -67,11 +64,7 @@ const HeroSection = () => {
             </div>
             <span>EXPERTISE</span>
           </motion.div>
-
-
         </div>
-
-
       </div>
     </section>
   );
@@ -691,9 +684,9 @@ export default function Services2() {
       <CTACollage />
       <Footer />
 
-      <ServicePopup 
-        isOpen={isPopupOpen} 
-        onClose={() => setIsPopupOpen(false)} 
+      <ServicePopup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
         service={selectedService ? {
           name: selectedService.name,
           description: selectedService.description,

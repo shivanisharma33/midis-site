@@ -13,9 +13,9 @@ const AIHero = () => {
     <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-24 px-6 overflow-hidden bg-black text-white">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop" 
-          alt="AI Hero Background" 
+        <img
+          src=""
+          alt="AI Hero Background"
           className="w-full h-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/90" />
@@ -29,27 +29,27 @@ const AIHero = () => {
         >
           {/* Main Heading */}
           <div className="text-center relative mb-12">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-[clamp(2.5rem,8vw,9.5rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight" 
+              className="text-[clamp(2.5rem,8vw,9.5rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight"
               style={{ fontFamily: 'Anton, sans-serif' }}
             >
               Transforming Future With
             </motion.h1>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,8vw,9.5rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-1" 
+              className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,8vw,9.5rem)] leading-[1.1] md:leading-[0.9] font-normal uppercase tracking-tight mt-1"
               style={{ fontFamily: 'Anton, sans-serif' }}
             >
               <span>SMARTER</span>
               <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
-                <img 
-                  src="/abstract_oval.png" 
-                  alt="AI Decorative" 
+                <img
+                  src="/abstract_oval.png"
+                  alt="AI Decorative"
                   className="w-full h-full object-cover scale-150 animate-pulse-slow"
                 />
               </div>
@@ -57,7 +57,7 @@ const AIHero = () => {
             </motion.div>
           </div>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -66,7 +66,7 @@ const AIHero = () => {
             At Midis, we help brands unlock the true potential of AI-driven solutions to enhance customer experiences, streamline workflows, and drive measurable growth.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -82,13 +82,13 @@ const AIHero = () => {
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
           className="mt-20 flex justify-center"
         >
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
             className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5"
@@ -153,7 +153,7 @@ const AIServices = () => {
               whileHover={{ y: -10 }}
               className="group p-8 sm:p-12 rounded-[40px] bg-gray-50 hover:bg-black hover:text-white transition-all duration-500 border border-gray-100"
             >
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-white text-black shadow-sm group-hover:scale-110 transition-transform"
                 style={{ color: item.color }}
               >
@@ -163,7 +163,7 @@ const AIServices = () => {
               <p className="text-lg text-black/50 group-hover:text-white/60 leading-relaxed mb-8">
                 {item.desc}
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-auto">
                 {item.features.map((f, idx) => (
                   <div key={idx} className="flex items-center gap-3">
@@ -202,7 +202,7 @@ const AIProcess = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {steps.map((step, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -252,9 +252,9 @@ const AIIndustries = () => {
           </div>
           <div className="relative">
             <div className="rounded-[40px] overflow-hidden aspect-square lg:aspect-video relative z-10 border border-gray-100 shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop" 
-                alt="AI Development" 
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+                alt="AI Development"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -298,8 +298,8 @@ const AIFAQ = () => {
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-center mb-20 leading-[0.9]">Common Questions</h2>
         <div className="space-y-6">
           {faqs.map((faq, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm"
             >
               <button
@@ -342,9 +342,9 @@ export default function AI() {
   return (
     <main className="bg-[#050505] min-h-screen text-white overflow-x-hidden selection:bg-orange-600 selection:text-white">
       <Navigation />
-      
+
       <AIHero />
-      
+
       <div data-navbar-theme="dark">
         <AIServices />
       </div>
@@ -369,7 +369,7 @@ export default function AI() {
         >
           Start Your AI Journey <ArrowUpRight size={20} strokeWidth={3} />
         </motion.button>
-        
+
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl aspect-square bg-orange-600/10 rounded-full blur-[120px] -z-0 pointer-events-none" />
       </section>

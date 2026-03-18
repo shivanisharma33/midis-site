@@ -93,20 +93,16 @@ const FuelingYourGrowthWithFreshIdeas: React.FC = () => {
           "
         >
           <img
-            src="/images/fresh-idea-3.webp"
+            src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=1600&auto=format&fit=crop&q=80"
             alt="Growth Idea 1"
             className="w-full h-[50vh] sm:h-[60vh] object-cover md:absolute md:top-0 md:left-0 md:h-full md:w-full"
           />
           <img
-            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80"
+            src="https://images.unsplash.com/photo-1623251609314-97cc1f84e3ed?w=1600&auto=format&fit=crop&q=80"
             alt="Growth Idea 2"
             className="hidden md:block w-full h-[50vh] sm:h-[60vh] object-cover mb-1 md:mb-0 md:absolute md:top-0 md:left-0 md:h-full md:w-full"
           />
-          <img
-            src="/images/fresh-idea-2.webp"
-            alt="Growth Idea 3"
-            className="hidden md:block w-full h-[50vh] sm:h-[60vh] object-cover md:absolute md:top-0 md:left-0 md:h-full md:w-full"
-          />
+
         </div>
 
         {/* RIGHT CONTENT */}
@@ -130,16 +126,23 @@ const FuelingYourGrowthWithFreshIdeas: React.FC = () => {
               branding, and social media solutions that get results for global brands.
             </p>
 
-            <div className="mb-10">
-              <p className="text-[16px] sm:text-[18px] font-medium text-black">
-                +91 91703 14141
-              </p>
-              <a
-                href="mailto:info@midis.in"
-                className="text-black border-b border-gray-700 pb-[3px] text-[14px] sm:text-[16px]"
-              >
-                INFO@MIDIS.IN
-              </a>
+            <div className="mb-10 space-y-4">
+              <div className="flex flex-col gap-2">
+                <p className="text-[16px] sm:text-[18px] font-semibold text-black flex items-center gap-3">
+                  <span className="text-[22px]">🇺🇸</span> +1 (862) 295-0117
+                </p>
+                <p className="text-[16px] sm:text-[18px] font-semibold text-black flex items-center gap-3">
+                  <span className="text-[22px]">🇮🇳</span> +91 97793 20626
+                </p>
+              </div>
+              <div className="pt-1">
+                <a
+                  href="mailto:info@midis.in"
+                  className="text-black border-b border-gray-700 pb-[3px] text-[14px] sm:text-[16px] font-medium"
+                >
+                  INFO@MIDIS.IN
+                </a>
+              </div>
             </div>
 
             <button

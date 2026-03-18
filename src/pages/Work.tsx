@@ -83,13 +83,7 @@ const WorkPage = () => {
                             style={{ fontFamily: 'Anton, sans-serif' }}
                         >
                             <span>WORKS</span>
-                            <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
-                                <img 
-                                    src="/abstract_oval.png" 
-                                    alt="Work Decorative" 
-                                    className="w-full h-full object-cover scale-150 animate-pulse-slow"
-                                />
-                            </div>
+                          
                             <span>& IMPACT</span>
                         </motion.div>
 
@@ -104,20 +98,7 @@ const WorkPage = () => {
                     </motion.div>
 
                     {/* scroll hint */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.2, duration: 1 }}
-                        className="mt-16 flex justify-center"
-                    >
-                        <motion.div 
-                            animate={{ y: [0, 8, 0] }}
-                            transition={{ repeat: Infinity, duration: 2 }}
-                            className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-                        >
-                            <div className="w-1 h-2 bg-orange-500 rounded-full" />
-                        </motion.div>
-                    </motion.div>
+                  
                 </div>
             </section>
 

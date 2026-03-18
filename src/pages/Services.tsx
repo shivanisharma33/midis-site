@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { services, CategoryKey } from "@/data/services";
 import { CategoryTabs } from "@/components/services/CategoryTabs";
 import { ServiceGrid } from "@/components/services/ServiceGrid";
+import { Link } from "react-router-dom";
 
 export default function Services() {
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("all");
@@ -28,14 +29,13 @@ export default function Services() {
 
       {/* REDESIGNED HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center pt-32 pb-20 px-6 overflow-hidden bg-black text-white">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
+        {/* Background Image - Clear view without overlays */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop"
-            alt="Hero Background"
-            className="w-full h-full object-cover opacity-50"
+            src="/images/6936354b56d45fd81bf94509_Sections-p-1600.jpg"
+            alt="AI Hero Background"
+            className="w-full h-full object-cover opacity-80 blur-[2px] scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-[#050505]" />
         </div>
 
         <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
@@ -67,6 +67,27 @@ export default function Services() {
                 />
               </div>
               <span>EXPERTISE</span>
+            </motion.div>
+ 
+            {/* CTA BUTTONS SECTION */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-wrap justify-center gap-6 mt-12 relative z-20"
+            >
+              <Link
+                to="/contact"
+                className="px-10 py-4 bg-white text-black font-bold uppercase tracking-[0.2em] text-[11px] rounded-full hover:bg-orange-600 hover:text-white transition-all duration-500 shadow-[0_10px_30px_rgba(255,255,255,0.1)]"
+              >
+                Start a Project
+              </Link>
+              <Link
+                to="/work"
+                className="px-10 py-4 bg-transparent text-white font-bold border-2 border-white/20 uppercase tracking-[0.2em] text-[11px] rounded-full hover:bg-white hover:text-black transition-all duration-500"
+              >
+                View Our Work
+              </Link>
             </motion.div>
 
 

@@ -69,42 +69,42 @@ export const TeamSection: React.FC = () => {
 
   const teamMembers = [
     {
-      img: "https://www.midis.in/image/Alin.jpg",
+      img: "/GRAPHIC DESIGNER (1)/7.jpg",
       name: "ALIN MISHRA",
       role: "SHOPIFY DEVELOPER",
     },
     {
-      img: "/images/shivii.jpg",
+      img: "/GRAPHIC DESIGNER (1)/9.jpg",
       name: "SHIVANI",
       role: "FRONTEND DEVELOPER",
     },
     {
-      img: "https://www.midis.in/image/member2.jpg",
+      img: "/GRAPHIC DESIGNER (1)/8.jpg",
       name: "OJASWINI SAINI",
       role: "GRAPHIC DESIGNER",
     },
     {
-      img: "https://www.midis.in/image/member1.jpg",
+      img: "/GRAPHIC DESIGNER (1)/4.jpg",
       name: "SWAYAM GANDHI",
       role: "BACKEND DEVELOPER",
     },
     {
-      img: "https://www.midis.in/image/member4.jpg",
+      img: "/GRAPHIC DESIGNER (1)/3.jpg",
       name: "RAHUL GEHLOT",
       role: "GRAPHIC DESIGNER",
     },
     {
-      img: "https://www.midis.in/image/member6.jpg",
+      img: "/GRAPHIC DESIGNER (1)/5.jpg",
       name: "NAVKIRAT BHOGAL",
       role: "SEO EXPERT",
     },
     {
-      img: "https://www.midis.in/image/member3.jpg",
+      img: "/GRAPHIC DESIGNER (1)/.jpg",
       name: "CHANDA ANGRAL",
       role: "GRAPHIC DESIGNER",
     },
     {
-      img: "/images/puruv.jpg",
+      img: "/GRAPHIC DESIGNER (1)/6.jpg",
       name: "PURUVJIT",
       role: "CHIEF TECHNOLOGY OFFICER",
     },

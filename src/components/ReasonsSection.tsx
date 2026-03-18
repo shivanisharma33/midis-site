@@ -13,24 +13,23 @@ type ReasonItem = {
 const items: ReasonItem[] = [
   {
     number: "01.",
-    title: "EXPERTISE &\nSPECIALIZATION",
-    image: "/images/testimonial-bg.webp",
+    title: "PROVEN ROI &\nDIGITAL GROWTH",
+    image: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?w=1600&auto=format&q=80",
   },
   {
     number: "02.",
-    title: "24/7 CUSTOMER\nSUPPORT",
-    image:
-      "https://cdn.prod.website-files.com/67a1ba0a889270647730e779/6807591402397500a733b507_banner%20img-p-1600.webp",
+    title: "CREATIVE MASTERY &\nBRAND STRATEGY",
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&auto=format&q=80",
   },
   {
     number: "03.",
-    title: "COST-EFFECTIVE\nSOLUTIONS",
-    image: "/images/service-branding.webp",
+    title: "TECHNICAL SEO &\nPERFORMANCE",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&auto=format&q=80",
   },
   {
     number: "04.",
-    title: "EXPERTISE &\nSPECIALIZATION",
-    image: "/images/service-dev.webp",
+    title: "SOCIAL MEDIA &\nAD EXPERTS",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1600&auto=format&q=80",
   },
 ];
 
@@ -76,7 +75,7 @@ export const ReasonsSection: React.FC = () => {
         const backgrounds = bgRefs.current.filter(Boolean) as HTMLDivElement[];
         const cards = itemRefs.current.filter(Boolean) as HTMLDivElement[];
 
-        gsap.set(backgrounds, { opacity: 0, scale: 1.1, filter: "blur(10px)" });
+        gsap.set(backgrounds, { opacity: 0, scale: 1.05, filter: "blur(10px)" });
         gsap.set(backgrounds[0], { opacity: 1, scale: 1, filter: "blur(0px)" });
         cards[0]?.classList.add("active");
 
@@ -84,7 +83,7 @@ export const ReasonsSection: React.FC = () => {
           trigger: switchRef.current,
           start: "top top",
           end: `+=${items.length * 120}%`,
-          scrub: 1, 
+          scrub: 1,
           pin: true,
           anticipatePin: 1,
 
@@ -95,11 +94,10 @@ export const ReasonsSection: React.FC = () => {
             );
 
             if (index === activeIndex.current) return;
-            
+
             const prevIndex = activeIndex.current;
             activeIndex.current = index;
 
-            // Background transition
             gsap.to(backgrounds[index], {
               opacity: 1,
               scale: 1,
@@ -136,10 +134,10 @@ export const ReasonsSection: React.FC = () => {
             text-[38px] sm:text-[3.2rem] md:text-[4.2rem] lg:text-[6.2rem]
             tracking-[-2px] lg:tracking-tighter"
           >
-            <span className="reason-line block">HERE ARE A FEW</span>
-            <span className="reason-line block">REASONS WHY</span>
-            <span className="reason-line block text-gray-200">
-              YOU&apos;LL LOVE US
+            <span className="reason-line block">WHY CHOOSE</span>
+            <span className="reason-line block">MIDIS FOR YOUR</span>
+            <span className="reason-line block text-orange-500">
+              SUCCESS
             </span>
           </h2>
         </div>
@@ -147,7 +145,6 @@ export const ReasonsSection: React.FC = () => {
 
       {/* ================= DESKTOP SWITCH SECTION ================= */}
       <div ref={switchRef} className="relative hidden md:block">
-        {/* GRID */}
         <div
           className="
             grid
@@ -186,8 +183,7 @@ export const ReasonsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* IMAGE SWITCH */}
-        <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] overflow-hidden">
+        <div className="relative h-[60vh] sm:h-[70vh] md:h-[90vh] overflow-hidden">
           {items.map((item, i) => (
             <div
               key={i}
@@ -197,9 +193,8 @@ export const ReasonsSection: React.FC = () => {
               <img
                 src={item.image}
                 alt=""
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
-              {/* Overlay for depth */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
             </div>
           ))}
@@ -214,22 +209,19 @@ export const ReasonsSection: React.FC = () => {
             <div key={i} className="border-b border-gray-100 flex flex-col">
               <button
                 onClick={() => setActiveMobileIndex(isActive ? null : i)}
-                className={`text-left p-6 w-full flex flex-col transition-colors duration-300 ${
-                  isActive ? "bg-[#fafafa]" : "bg-white"
-                }`}
+                className={`text-left p-6 w-full flex flex-col transition-colors duration-300 ${isActive ? "bg-[#fafafa]" : "bg-white"
+                  }`}
               >
                 <div className="flex justify-between items-center w-full">
                   <p
-                    className={`text-[10px] font-bold transition-colors duration-300 ${
-                      isActive ? "text-black" : "text-gray-300"
-                    }`}
+                    className={`text-[10px] font-bold transition-colors duration-300 ${isActive ? "text-black" : "text-gray-300"
+                      }`}
                   >
                     {item.number}
                   </p>
                   <div
-                    className={`transform transition-transform duration-300 text-gray-400 ${
-                      isActive ? "rotate-180" : ""
-                    }`}
+                    className={`transform transition-transform duration-300 text-gray-400 ${isActive ? "rotate-180" : ""
+                      }`}
                   >
                     <svg
                       width="12"
@@ -253,9 +245,8 @@ export const ReasonsSection: React.FC = () => {
                 </h3>
               </button>
               <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  isActive ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                }`}
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${isActive ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
               >
                 <div className="relative w-full h-[300px]">
                   <img
@@ -263,7 +254,6 @@ export const ReasonsSection: React.FC = () => {
                     alt=""
                     className="w-full h-full object-cover"
                   />
-                  {/* Overlay for depth */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
                 </div>
               </div>
