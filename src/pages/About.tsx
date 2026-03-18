@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, Globe, TrendingUp, Users, BarChart2, Search, Sparkles, Check, Zap } from "lucide-react";
 
 /* ───────────────────────── ANIMATION HELPERS ───────────────────────── */
 
@@ -26,24 +26,28 @@ const staggerContainer = {
 
 const whyMidisReasons = [
   {
-    emoji: "🌍",
+    icon: Globe,
     title: "Global Perspective",
     desc: "We understand how people behave online in different cultures, so our strategies adapt—they are not copy-paste.",
+    color: "from-blue-500/20 to-cyan-500/20"
   },
   {
-    emoji: "🎯",
+    icon: TrendingUp,
     title: "Return on Investment",
     desc: "We don't celebrate likes or impressions. We celebrate leads, sales, and revenue growth.",
+    color: "from-green-500/20 to-emerald-500/20"
   },
   {
-    emoji: "🤝",
+    icon: Users,
     title: "Real Collaboration",
     desc: "We don't disappear after sending a report. We work alongside you, adjusting strategy when the market shifts.",
+    color: "from-orange-500/20 to-amber-500/20"
   },
   {
-    emoji: "💡",
+    icon: BarChart2,
     title: "Ideas & Data Balance",
     desc: "We love creative campaigns, but numbers keep us grounded.",
+    color: "from-purple-500/20 to-pink-500/20"
   },
 ];
 
@@ -84,7 +88,7 @@ const AboutHero = () => {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.div
           className="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
-          style={{ background: "radial-gradient(circle, #f97316, #ea580c, transparent)" }}
+          style={{ background: "radial-gradient(circle, rgba(252, 108, 5, 1), #ea580c, transparent)" }}
           animate={{ x: ["-10%", "15%", "-5%"], y: ["-20%", "10%", "-15%"] }}
           transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
           initial={{ top: "-10%", left: "10%" }}
@@ -258,7 +262,9 @@ const WhyMidisSection = () => {
       <div className="max-w-[1300px] mx-auto">
         {/* Header */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-center gap-3 mb-6">
-          <div className="w-2 h-2 rounded-full bg-orange-500" />
+          <div className="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600">
+            <Search size={16} strokeWidth={3} />
+          </div>
           <span className="text-black font-bold text-[11px] tracking-[0.25em] uppercase">Why Choose Us</span>
         </motion.div>
 
@@ -285,7 +291,9 @@ const WhyMidisSection = () => {
 
               <div className="relative z-10">
                 <div className="flex items-start gap-5">
-                  <span className="text-4xl flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300">{reason.emoji}</span>
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${reason.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500`}>
+                    <reason.icon size={28} className="text-black/80" />
+                  </div>
                   <div>
                     <h3 className="text-xl md:text-2xl font-black uppercase text-[#0C0E12] tracking-tight mb-3 leading-tight">{reason.title}</h3>
                     <p className="text-[#5a5a6a] text-base leading-relaxed font-medium">{reason.desc}</p>
@@ -314,13 +322,15 @@ const GainsSection = () => {
           {/* Left */}
           <div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-orange-500" />
+              <div className="w-8 h-8 rounded-lg bg-orange-600/10 flex items-center justify-center text-orange-600 animate-pulse">
+                <Zap size={16} strokeWidth={2.5} fill="currentColor" className="opacity-80" />
+              </div>
               <span className="text-black font-bold text-[11px] tracking-[0.25em] uppercase">Partnership</span>
             </motion.div>
 
             <motion.h2 variants={fadeUp} custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-[30px] md:text-5xl lg:text-6xl font-black uppercase text-[#0C0E12] leading-[0.95] tracking-tight mb-6">
               WHAT YOU'LL <br />
-              <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">GAIN WITH MIDIS</span>
+              <span className="bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 bg-clip-text text-transparent">GAIN WITH MIDIS</span>
             </motion.h2>
 
             <motion.p variants={fadeUp} custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-[#3a3a4a] text-base md:text-lg leading-relaxed font-medium mb-10">
@@ -337,10 +347,8 @@ const GainsSection = () => {
                 custom={i}
                 className="group flex items-start gap-5 p-6 rounded-2xl bg-[#faf9f7] border border-black/5 hover:border-orange-500/20 hover:shadow-lg transition-all duration-500"
               >
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-4 h-4 text-white" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8.5l3.5 3.5 6.5-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-600 to-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-orange-500/20">
+                  <ArrowRight className="w-4 h-4 text-white" strokeWidth={3} />
                 </div>
                 <p className="text-[#2a2a3a] text-base md:text-lg font-semibold leading-relaxed">{gain.text}</p>
               </motion.div>
@@ -365,8 +373,8 @@ const AboutMarquee = () => {
         className="flex whitespace-nowrap gap-20"
       >
         {[1, 2, 3].map(i => (
-          <span key={i} className="text-[12vw] font-black uppercase text-white/5 tracking-[0.05em] leading-none">
-            MIDIS AGENCY * MIDIS AGENCY * MIDIS AGENCY *
+          <span key={i} className="text-[12vw] font-black uppercase text-white/10 tracking-[0.05em] leading-none">
+            MIDIS AGENCY <span className="text-orange-500">*</span> MIDIS AGENCY <span className="text-orange-500">*</span> MIDIS AGENCY <span className="text-orange-500">*</span>
           </span>
         ))}
       </motion.div>

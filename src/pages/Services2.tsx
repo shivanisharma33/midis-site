@@ -232,7 +232,7 @@ const servicesData = [
   },
   {
     name: "YOUTUBE MANAGEMENT",
-    image: "https://www.pexels.com/photo/youtube-logo-on-laptop-screen-in-dark-setting-33440278/",
+    image: "https://images.pexels.com/photos/33440278/pexels-photo-33440278.jpeg",
     description: "End-to-end channel growth strategy, optimization, and content planning",
     color: "#F9844A"
   },
