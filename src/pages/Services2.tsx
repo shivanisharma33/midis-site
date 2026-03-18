@@ -232,7 +232,7 @@ const servicesData = [
   },
   {
     name: "YOUTUBE MANAGEMENT",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop",
+    image: "https://www.pexels.com/photo/youtube-logo-on-laptop-screen-in-dark-setting-33440278/",
     description: "End-to-end channel growth strategy, optimization, and content planning",
     color: "#F9844A"
   },
@@ -384,9 +384,24 @@ const ExploreServices = ({ onExplore }: { onExplore: (service: typeof servicesDa
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "center center"] });
 
-  // Spring-based text animations for 60fps
-  const rawXExplore = useTransform(scrollYProgress, [0, 0.8], [-200, 0]);
-  const rawXServices = useTransform(scrollYProgress, [0, 0.8], [200, 0]);
+  // Spring-based text animations with smaller offset on mobile
+  const [offsetRange, setOffsetRange] = useState({ left: -200, right: 200 });
+  
+  useEffect(() => {
+    const updateRange = () => {
+      const isMobile = window.innerWidth < 768;
+      setOffsetRange({
+        left: isMobile ? 0 : -200,
+        right: isMobile ? 0 : 200
+      });
+    };
+    updateRange();
+    window.addEventListener('resize', updateRange);
+    return () => window.removeEventListener('resize', updateRange);
+  }, []);
+
+  const rawXExplore = useTransform(scrollYProgress, [0, 0.8], [offsetRange.left, 0]);
+  const rawXServices = useTransform(scrollYProgress, [0, 0.8], [offsetRange.right, 0]);
 
   const xExplore = useSpring(rawXExplore, snappySpring);
   const xServices = useSpring(rawXServices, snappySpring);
@@ -394,22 +409,25 @@ const ExploreServices = ({ onExplore }: { onExplore: (service: typeof servicesDa
   return (
     <section
       ref={sectionRef}
-      className="bg-white py-20 sm:py-32 lg:py-40 px-4 sm:px-6 lg:px-20 relative overflow-hidden text-black"
+      className="bg-white py-16 sm:py-32 lg:py-40 px-4 sm:px-6 lg:px-20 relative overflow-hidden text-black"
     >
       <div className="max-w-[1500px] mx-auto">
         {/* Heading - Responsive */}
-        <div className="flex flex-col mb-16 sm:mb-24 lg:mb-32 relative w-full items-center">
-          <motion.div style={{ x: xExplore, willChange: "transform" }} className="w-full">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[13vw] font-black uppercase tracking-tighter leading-[0.85] text-black text-left">
+        <div className="flex flex-col mb-12 sm:mb-24 lg:mb-32 relative w-full items-center">
+          <motion.div 
+            style={{ x: xExplore, willChange: "transform" }} 
+            className="w-full"
+          >
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[13vw] font-black uppercase tracking-tighter leading-[0.85] text-black text-center sm:text-left">
               Explore
             </h2>
           </motion.div>
 
           <motion.div
             style={{ x: xServices, willChange: "transform" }}
-            className="w-full flex justify-end md:pr-[10%]"
+            className="w-full flex justify-center sm:justify-end md:pr-[10%]"
           >
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[13vw] font-black uppercase tracking-tighter leading-[0.85] text-black text-right">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[13vw] font-black uppercase tracking-tighter leading-[0.85] text-black text-center sm:text-right">
               Services
             </h2>
           </motion.div>
