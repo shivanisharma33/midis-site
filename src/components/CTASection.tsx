@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -127,13 +127,12 @@ export const CTASection = () => {
         </div>
 
         {/* BUTTON */}
-        <motion.a
-          href="#"
-          whileHover={{ scale: 1.05 }}
-          className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-black text-white text-sm font-semibold"
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-black text-white text-sm font-semibold hover:scale-105 transition-transform"
         >
           LET&apos;S GET STARTED →
-        </motion.a>
+        </Link>
       </div>
     </section>
   );

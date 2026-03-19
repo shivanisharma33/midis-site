@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -145,17 +146,18 @@ const FuelingYourGrowthWithFreshIdeas: React.FC = () => {
               </div>
             </div>
 
-            <button
+            <Link
+              to="/contact"
               className="
                 bg-black text-white
                 px-6 sm:px-8 py-3 sm:py-4
                 rounded-full text-[15px] sm:text-[16px]
                 font-semibold w-fit hover:bg-gray-900
-                transition
+                transition inline-block
               "
             >
               LET’S COLLABORATE →
-            </button>
+            </Link>
           </div>
         </div>
       </div>

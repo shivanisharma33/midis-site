@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/banner.webp')",
+            backgroundImage: "url('/images/growth (10).avif')",
           }}
         />
         {/* Gradient overlay for first image */}
@@ -112,7 +112,7 @@ const HeroSection: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/banner-about.webp')",
+            backgroundImage: "url('/images/growth (11).avif')",
           }}
         />
         {/* Black filter overlay on second image */}

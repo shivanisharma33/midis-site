@@ -221,7 +221,7 @@ export default function CrearistCollage() {
       <div className="md:hidden w-full px-0 mb-12">
         <div ref={imgMotionMobileRef} className="w-full h-[50vh] overflow-hidden">
           <img
-            src="https://cdn.prod.website-files.com/67a1ba0a889270647730e779/6826e26267d669b873e710d1_image%20(42)-p-800.webp"
+          src="/images/1 .avif"
             alt="Motion Portrait"
             className="w-full h-full object-cover"
           />
@@ -237,7 +237,7 @@ export default function CrearistCollage() {
           className="absolute left-[18%] top-[25%] w-[21vw] aspect-[3/4.4] overflow-hidden shadow-2xl z-20"
         >
           <img
-            src="https://cdn.prod.website-files.com/67a1ba0a889270647730e779/680771c062181f09a0bb7928_Partner%20(1)-p-500.webp"
+            src="/images/growth (9).avif"
             alt="Main Portrait"
             className="w-full h-full object-cover"
           />
@@ -249,7 +249,7 @@ export default function CrearistCollage() {
           className="absolute left-[30%] top-[15%] w-[13vw] aspect-square z-30 pointer-events-none"
         >
           <img
-            src="https://cdn.prod.website-files.com/67a1ba0a889270647730e779/680771c04782536da6d784cd_Partner.webp"
+            src="/images/yel.avif"
             alt="Gold Asset"
             className="w-full h-full object-contain"
           />
@@ -261,7 +261,7 @@ export default function CrearistCollage() {
           className="absolute left-[37%] top-[54%] w-[11vw] aspect-square z-25 pointer-events-none"
         >
           <img
-            src="https://cdn.prod.website-files.com/67a1ba0a889270647730e779/67f3744155131a860ce7f378_image%20(20).webp"
+            src="/images/growth (8).avif"
             alt="Orange"
             className="w-full h-full object-contain"
           />
@@ -273,7 +273,7 @@ export default function CrearistCollage() {
           className="absolute left-[47%] top-[10%] w-[25vw] h-[35vw] overflow-hidden z-10"
         >
           <img
-            src="https://cdn.prod.website-files.com/67a1ba0a889270647730e779/6826e26267d669b873e710d1_image%20(42)-p-800.webp"
+            src="/images/1 .avif"
             alt="Motion Portrait"
             className="w-full h-full object-cover"
           />
@@ -285,7 +285,7 @@ export default function CrearistCollage() {
           className="absolute left-[68%] top-[32%] w-[19vw] aspect-[4/3] z-20"
         >
           <img
-            src="https://cdn.prod.website-files.com/67a1ba0a889270647730e779/67f3744155131a860ce7f375_image%20(21).webp"
+            src="/images/tv.avif"
             alt="Asset"
             className="w-full h-full object-contain"
           />
@@ -351,7 +351,7 @@ export default function CrearistCollage() {
       >
         <div ref={imgStack2Ref} className="block w-full h-[50vh] md:w-1/2 md:h-full overflow-hidden">
           <img
-            src="https://cdn.prod.website-files.com/67a1ba0a889270647730e779/680771c045ce1011349f054e_Milestone-p-1080.webp"
+            src="/images/2 cccc.avif"
             alt="Stack 2"
             className="w-full h-full object-cover"
           />
