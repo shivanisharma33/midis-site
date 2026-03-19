@@ -13,5 +13,6 @@ export const navItems: NavItem[] = [
   { label: "Work", to: "/work" },
   { label: "AI", to: "/ai" },
   { label: "Service", to: "/services2" },
+  { label: "Blog", to: "/blogs" },
   { label: "Contact", to: "/contact" },
 ];

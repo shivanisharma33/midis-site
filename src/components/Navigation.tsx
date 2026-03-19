@@ -96,9 +96,12 @@ export const Navigation = () => {
               </Link>
             ))}
 
-            <button className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-colors">
+            <Link 
+              to="/work"
+              className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-colors"
+            >
               <ArrowUpRight size={16} />
-            </button>
+            </Link>
           </div>
 
           {/* ================= RIGHT SIDE (DESKTOP ICONS) ================= */}
