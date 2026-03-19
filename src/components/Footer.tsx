@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -88,13 +89,13 @@ export const Footer = () => {
         <div className="footer-col">
           <h3 className="text-lg font-black uppercase tracking-tighter mb-6">Our Top Service</h3>
           <ul className="space-y-3 text-gray-400 text-sm font-medium">
-            <li><a href="/services" className="hover:text-orange-500 transition-colors">Web Development</a></li>
-            <li><a href="/services" className="hover:text-orange-500 transition-colors">Web Designing</a></li>
-            <li><a href="/services" className="hover:text-orange-500 transition-colors">Graphic Design</a></li>
-            <li><a href="/services" className="hover:text-orange-500 transition-colors">Content Writing</a></li>
-            <li><a href="/services" className="hover:text-orange-500 transition-colors">Video Editing</a></li>
-            <li><a href="/services" className="hover:text-orange-500 transition-colors">YouTube Management</a></li>
-            <li><a href="/services" className="hover:text-orange-500 transition-colors">Search Engine optimization</a></li>
+            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Web Development</Link></li>
+            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Web Designing</Link></li>
+            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Graphic Design</Link></li>
+            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Content Writing</Link></li>
+            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Video Editing</Link></li>
+            <li><Link to="/services" className="hover:text-orange-500 transition-colors">YouTube Management</Link></li>
+            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Search Engine Optimization</Link></li>
           </ul>
         </div>
 
@@ -102,11 +103,10 @@ export const Footer = () => {
         <div className="footer-col">
           <h3 className="text-lg font-black uppercase tracking-tighter mb-6">Quick Links</h3>
           <ul className="space-y-3 text-gray-400 text-sm font-medium">
-            <li><a href="/contact" className="hover:text-orange-500 transition-colors">Contact Us</a></li>
-            <li><a href="/services" className="hover:text-orange-500 transition-colors">Services</a></li>
-            <li><a href="/about" className="hover:text-orange-500 transition-colors">About Us</a></li>
-            <li><a href="/blogs" className="hover:text-orange-500 transition-colors">Blogs</a></li>
-
+            <li><Link to="/contact" className="hover:text-orange-500 transition-colors">Contact Us</Link></li>
+            <li><Link to="/services2" className="hover:text-orange-500 transition-colors">Services</Link></li>
+            <li><Link to="/about" className="hover:text-orange-500 transition-colors">About Us</Link></li>
+            <li><Link to="/blogs" className="hover:text-orange-500 transition-colors">Blogs</Link></li>
           </ul>
         </div>
 
