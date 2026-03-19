@@ -1,282 +1,153 @@
-import React from "react";
+"use client";
+
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { ArrowUpRight } from "lucide-react";
 
-const Blog = () => {
+/* ───────────────────────── MOCK DATA ───────────────────────── */
+
+const BLOG_POSTS = [
+  {
+    id: 1,
+    title: "AI-GENERATED ART IS MORE THAN JUST A TREND",
+    excerpt: "AI art is often dismissed as \"soulless\" or \"effortless,\" but is that really true?",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 2,
+    title: "HOW TO PREPARE AI ART FOR PRINTING",
+    excerpt: "Essential steps covering resolution, upscaling techniques, color correction, and the best file formats.",
+    image: "https://images.unsplash.com/photo-1675271591211-126ad94e495d?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 3,
+    title: "HOW AI AND HUMANS WORK TOGETHER",
+    excerpt: "How artists guide AI tools to bring unique visions to life, refine outputs, and add the final human touch.",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252728f?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 4,
+    title: "THE FUTURE OF CREATIVE AUTOMATION",
+    excerpt: "Exploring how automation is changing the workflow of modern creative agencies.",
+    image: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 5,
+    title: "BEYOND THE PIXEL: THE NEW DESIGN FRONTIER",
+    excerpt: "Moving past traditional UI limits into immersive, spatial computing experiences.",
+    image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: 6,
+    title: "SCALING STARTUPS WITH AI SYSTEMS",
+    excerpt: "How lean teams are using AI to compete with industry giants and win.",
+    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=800&auto=format&fit=crop",
+  }
+];
+
+/* ───────────────────────── COMPONENTS ───────────────────────── */
+
+const BlogCard = ({ post }: { post: any }) => {
   return (
-    <main className="bg-[#050505] min-h-screen text-white overflow-x-hidden selection:bg-orange-600 selection:text-white">
-      <Navigation />
-
-      {/* ================= NEW PREMIUM BLOG HERO ================= */}
-      <section className="relative min-h-[85vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden bg-black text-white">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop" 
-            alt="Blogs Background" 
-            className="w-full h-full object-cover opacity-30 grayscale"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-[#050505]" />
-        </div>
-
-        <div className="max-w-[1400px] mx-auto relative z-10 w-full text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          >
-            {/* Main Heading */}
-            <div className="text-center relative">
-              <motion.h1 
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-[clamp(2.5rem,10vw,12rem)] leading-[0.85] font-normal uppercase tracking-tight" 
-                style={{ fontFamily: 'Anton, sans-serif' }}
-              >
-                STORIES &
-              </motion.h1>
-              <motion.div 
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[clamp(2.5rem,10vw,12rem)] leading-[0.85] font-normal uppercase tracking-tight mt-1" 
-                style={{ fontFamily: 'Anton, sans-serif' }}
-              >
-                <span>GLOBAL</span>
-                <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
-                  <img 
-                    src="/abstract_oval.png" 
-                    alt="Articles Decorative" 
-                    className="w-full h-full object-cover scale-150 animate-pulse-slow"
-                  />
-                </div>
-                <span>ARTICLES</span>
-              </motion.div>
-            </div>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="max-w-2xl mx-auto text-lg md:text-xl text-white/50 leading-relaxed font-medium mt-12 mb-8 px-4"
-            >
-              A place to read, write, and deepen your understanding of the digital landscape.
-            </motion.p>
-          </motion.div>
-
-          {/* scroll hint */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="mt-16 flex justify-center"
-          >
-            <motion.div 
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-            >
-              <div className="w-1 h-2 bg-orange-500 rounded-full" />
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ================= RECENT BLOGS - MOBILE FIRST ================= */}
-      <section className="w-full bg-black">
-        <div className="container-responsive section-spacing-lg">
-
-          {/* Section heading */}
-          <h2 className="text-heading-md text-white mb-8 sm:mb-10 md:mb-14">
-            Recent Blogs
-          </h2>
-
-          {/* Blog grid - Mobile first: 1 col → 2 cols (tablet) → 3 cols (desktop) */}
-          <div className="grid-3-col">
-
-            {/* Blog Card 1 */}
-            <article className="rounded-2xl md:rounded-3xl overflow-hidden bg-[#1A1A1A] hover:bg-[#222] transition-colors">
-              <div className="relative">
-                <img
-                  src="https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67308a182c39026fe235e8e2_blog-thumb-1-p-800.jpg"
-                  className="w-full aspect-[16/10] object-cover"
-                  alt="Blog thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="absolute top-3 left-3 md:top-4 md:left-4 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-medium px-3 py-1 rounded-full">
-                  Design
-                </span>
-              </div>
-
-              <div className="element-padding-sm">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 md:mb-3">
-                  How to create stunning visual designs
-                </h3>
-                <p className="text-caption text-gray-400 mb-3 md:mb-4 line-clamp-2">
-                  Learn the essential principles of visual design that will elevate your creative work.
-                </p>
-
-                <div className="flex items-center justify-between text-caption text-gray-500">
-                  <span>📅 Nov 10, 2024</span>
-                  <span>⏱ 5 mins</span>
-                </div>
-
-                <button className="mt-4 md:mt-5 w-full bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 md:py-3 rounded-lg text-xs sm:text-sm font-medium transition-colors">
-                  Read Article
-                </button>
-              </div>
-            </article>
-
-            {/* Blog Card 2 */}
-            <article className="rounded-2xl md:rounded-3xl overflow-hidden bg-[#1A1A1A] hover:bg-[#222] transition-colors">
-              <div className="relative">
-                <img
-                  src="https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67308a18f359e3de76889259_blog-thumb-2-p-800.jpg"
-                  className="w-full aspect-[16/10] object-cover"
-                  alt="Blog thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="absolute top-3 left-3 md:top-4 md:left-4 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-medium px-3 py-1 rounded-full">
-                  Development
-                </span>
-              </div>
-
-              <div className="element-padding-sm">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 md:mb-3">
-                  Modern web development practices
-                </h3>
-                <p className="text-caption text-gray-400 mb-3 md:mb-4 line-clamp-2">
-                  Explore the latest tools and techniques shaping the future of web development.
-                </p>
-
-                <div className="flex items-center justify-between text-caption text-gray-500">
-                  <span>📅 Nov 9, 2024</span>
-                  <span>⏱ 7 mins</span>
-                </div>
-
-                <button className="mt-4 md:mt-5 w-full bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 md:py-3 rounded-lg text-xs sm:text-sm font-medium transition-colors">
-                  Read Article
-                </button>
-              </div>
-            </article>
-
-            {/* Blog Card 3 */}
-            <article className="rounded-2xl md:rounded-3xl overflow-hidden bg-[#1A1A1A] hover:bg-[#222] transition-colors">
-              <div className="relative">
-                <img
-                  src="https://cdn.prod.website-files.com/6730614b3d201ddcf88f344b/67308a18e8d7e1c06df02cb6_blog-thumb-3-p-800.jpg"
-                  className="w-full aspect-[16/10] object-cover"
-                  alt="Blog thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="absolute top-3 left-3 md:top-4 md:left-4 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-medium px-3 py-1 rounded-full">
-                  Marketing
-                </span>
-              </div>
-
-              <div className="element-padding-sm">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 md:mb-3">
-                  Digital marketing strategies that work
-                </h3>
-                <p className="text-caption text-gray-400 mb-3 md:mb-4 line-clamp-2">
-                  Discover proven marketing tactics to grow your online presence and reach.
-                </p>
-
-                <div className="flex items-center justify-between text-caption text-gray-500">
-                  <span>📅 Nov 8, 2024</span>
-                  <span>⏱ 6 mins</span>
-                </div>
-
-                <button className="mt-4 md:mt-5 w-full bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 md:py-3 rounded-lg text-xs sm:text-sm font-medium transition-colors">
-                  Read Article
-                </button>
-              </div>
-            </article>
-
+    <motion.article 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex flex-col group cursor-pointer"
+    >
+      {/* Image Container */}
+      <div className="relative aspect-[1.4/1] overflow-hidden mb-6">
+        <img 
+          src={post.image} 
+          className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+          alt={post.title}
+        />
+        
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-500 flex flex-col justify-between p-6 opacity-0 group-hover:opacity-100">
+          <span className="text-[10px] font-bold tracking-[0.3em] text-white/70 uppercase">READ THIS POST</span>
+          <div className="self-end">
+            <ArrowUpRight className="text-white" size={24} />
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* ================= ALL BLOGS - MOBILE FIRST ================= */}
-      <section className="w-full bg-white">
-        <div className="container-responsive section-spacing-lg">
-
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 sm:mb-10 md:mb-12">
-            <h2 className="text-heading-md text-black">
-              All Blog Posts
-            </h2>
-
-            {/* Filter buttons - Stack on mobile, row on tablet+ */}
-            <div className="flex flex-wrap gap-2 sm:gap-3">
-              <button className="px-4 py-2 text-xs sm:text-sm font-medium bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
-                All
-              </button>
-              <button className="px-4 py-2 text-xs sm:text-sm font-medium bg-gray-100 text-black rounded-full hover:bg-gray-200 transition-colors">
-                Design
-              </button>
-              <button className="px-4 py-2 text-xs sm:text-sm font-medium bg-gray-100 text-black rounded-full hover:bg-gray-200 transition-colors">
-                Development
-              </button>
-              <button className="px-4 py-2 text-xs sm:text-sm font-medium bg-gray-100 text-black rounded-full hover:bg-gray-200 transition-colors">
-                Marketing
-              </button>
-            </div>
-          </div>
-
-          {/* Blog grid - Mobile: 1 col, Tablet: 2 cols, Desktop: 3 cols */}
-          <div className="grid-3-col">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <article key={i} className="rounded-2xl overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all group">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={`https://images.unsplash.com/photo-${1600000000000 + i * 1000000}?auto=format&fit=crop&w=800&q=80`}
-                    className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-300"
-                    alt={`Blog post ${i + 1}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-
-                <div className="element-padding-sm">
-                  <span className="inline-block text-xs sm:text-sm font-medium text-orange-500 mb-2">
-                    {i % 3 === 0 ? 'Design' : i % 3 === 1 ? 'Development' : 'Marketing'}
-                  </span>
-
-                  <h3 className="text-lg sm:text-xl font-semibold text-black mb-2 group-hover:text-orange-500 transition-colors">
-                    Blog Post Title {i + 1}
-                  </h3>
-
-                  <p className="text-caption text-gray-600 mb-4 line-clamp-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
-                  </p>
-
-                  <div className="flex items-center justify-between text-caption text-gray-500">
-                    <span>📅 Nov {7 - i}, 2024</span>
-                    <span>⏱ {4 + i} mins</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Load more button */}
-          <div className="flex justify-center mt-10 sm:mt-12 md:mt-16">
-            <button className="btn-responsive-lg bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
-              Load More Articles
-            </button>
-          </div>
-
-        </div>
-      </section>
-
-      <Footer />
-    </main>
+      {/* Content */}
+      <h3 className="text-[22px] md:text-[24px] font-bold leading-[1.1] text-white uppercase mb-3 tracking-tight group-hover:text-orange-500 transition-colors" style={{ fontFamily: 'Anton, sans-serif' }}>
+        {post.title}
+      </h3>
+      <p className="text-[14px] leading-relaxed text-white/40 font-medium">
+        {post.excerpt}
+      </p>
+    </motion.article>
   );
 };
 
-export default Blog;
+const BlogPage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    return (
+        <main className="bg-black min-h-screen text-white selection:bg-orange-600 selection:text-white pb-20">
+            <Navigation />
+
+            {/* Immersive Header Section with Hero Image */}
+            <header className="relative min-h-[70vh] flex items-center pt-48 pb-24 px-6 lg:px-24 overflow-hidden">
+                {/* Hero Background Image */}
+                <div className="absolute inset-0 z-0">
+                    <img 
+                        src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=2000&auto=format&fit=crop" 
+                        alt="Blog Hero" 
+                        className="w-full h-full object-cover grayscale opacity-40 animate-pulse-slow scale-110"
+                    />
+                    {/* Gradient Overlays for a clean transition */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+                    <div className="absolute inset-0 bg-black/40" />
+                </div>
+
+                <div className="max-w-[1400px] mx-auto relative z-10 w-full">
+                    <motion.h1 
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1.2, ease: "circOut" }}
+                        className="text-[14vw] md:text-[10vw] font-black leading-tight tracking-tighter uppercase mb-4"
+                        style={{ fontFamily: 'Anton, sans-serif' }}
+                    >
+                         BLOGS
+                    </motion.h1>
+                    <p className="text-[12px] md:text-[14px] font-black tracking-[0.6em] text-orange-500 uppercase mt-4">
+                        INSIGHTS • STRATEGY • INNOVATION
+                    </p>
+                </div>
+            </header>
+
+            {/* Grid Section */}
+            <section className="py-16 md:py-24 px-6 lg:px-24">
+                <div className="max-w-[1400px] mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-x-10 md:gap-y-20">
+                        {BLOG_POSTS.map((post) => (
+                            <BlogCard key={post.id} post={post} />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Pagination / Load More (Stylized) */}
+            <div className="flex justify-center mt-20 mb-32">
+                <button className="px-12 py-4 border border-white/20 rounded-full text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all">
+                    Load More Entries
+                </button>
+            </div>
+
+            <Footer />
+
+            {/* Background Texture Overlay */}
+            <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999]" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E')" }} />
+        </main>
+    );
+};
+
+export default BlogPage;
