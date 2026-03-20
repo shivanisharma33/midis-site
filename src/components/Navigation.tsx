@@ -61,35 +61,39 @@ export const Navigation = () => {
         transition-transform duration-300 ease-in-out
         ${hideNav ? "-translate-y-full" : "translate-y-0"}`}
       >
+
         <div className={`
           relative mx-auto flex items-center justify-between transition-all duration-500
-          lg:max-w-[1400px] lg:px-6 lg:py-4 lg:mt-0 lg:rounded-none lg:border-none
+          lg:max-w-[1400px] lg:px-6 2xl:px-0 lg:py-6 lg:mt-0 lg:rounded-none lg:border-none
           mx-4 mt-4 px-4 py-3 rounded-full shadow-lg
           ${isOnLight
-            ? "bg-black/80 backdrop-blur-md border border-black/10"
-            : "bg-black/20 backdrop-blur-md border border-white/10"
+            ? "bg-black/90 md:bg-black/80 backdrop-blur-md border border-black/10"
+            : "bg-black/40 md:bg-black/20 backdrop-blur-md border border-white/10"
           }
         `}>
           {/* ================= LOGO (LEFT) ================= */}
-          <Link to="/" className="flex items-center z-50 relative">
+          <Link to="/" className="flex items-center z-50 relative shrink-0">
             <img
               src="/images/midis final logo-01.png"
               alt="Midis Logo"
-              className="h-8 lg:h-14 w-auto object-contain"
+              className="h-8 md:h-10 lg:h-12 xl:h-14 w-auto object-contain transition-all duration-300"
             />
           </Link>
 
           {/* ================= CENTER PILL ================= */}
-          <div className={`hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center rounded-full px-6 py-2 gap-6 shadow-lg transition-all duration-500 ${
-            isOnLight ? "bg-white" : "bg-white"
-          }`}>
+          <div className={`
+            hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center rounded-full shadow-lg transition-all duration-500
+            px-4 xl:px-8 py-2 md:py-2.5 gap-4 xl:gap-8
+            ${isOnLight ? "bg-white" : "bg-white"}
+            min-w-fit whitespace-nowrap
+          `}>
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
-                className={`text-sm font-medium transition-colors ${isActive(item.to)
+                className={`text-[11px] xl:text-[13px] font-bold uppercase tracking-widest transition-colors ${isActive(item.to)
                   ? "text-black"
-                  : "text-black/60 hover:text-black"
+                  : "text-black/50 hover:text-black"
                   }`}
               >
                 {item.label}
@@ -98,64 +102,48 @@ export const Navigation = () => {
 
             <Link 
               to="/work"
-              className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-colors"
+              className="w-8 h-8 xl:w-10 xl:h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-orange-600 transition-all duration-300 shadow-md"
             >
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={14} className="xl:size-[16px]" />
             </Link>
           </div>
 
           {/* ================= RIGHT SIDE (DESKTOP ICONS) ================= */}
-          <div className="hidden lg:flex items-center gap-3 z-10">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                isOnLight
-                  ? "border-white/30 text-white hover:bg-white hover:text-black"
-                  : "border-white/20 text-white hover:bg-white hover:text-black"
-              }`}
-            >
-              <Instagram size={18} />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noreferrer"
-              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                isOnLight
-                  ? "border-white/30 text-white hover:bg-white hover:text-black"
-                  : "border-white/20 text-white hover:bg-white hover:text-black"
-              }`}
-            >
-              <Twitter size={18} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                isOnLight
-                  ? "border-white/30 text-white hover:bg-white hover:text-black"
-                  : "border-white/20 text-white hover:bg-white hover:text-black"
-              }`}
-            >
-              <Linkedin size={18} />
-            </a>
+          <div className="hidden lg:flex items-center gap-2 xl:gap-4 z-10 shrink-0">
+            {[
+              { icon: <Instagram size={18} />, href: "https://instagram.com" },
+              { icon: <Twitter size={18} />, href: "https://twitter.com" },
+              { icon: <Linkedin size={18} />, href: "https://linkedin.com" }
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className={`w-9 h-9 xl:w-11 xl:h-11 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                  isOnLight
+                    ? "border-white/30 text-white hover:bg-orange-600 hover:border-orange-600"
+                    : "border-white/10 text-white hover:bg-orange-600 hover:border-orange-600"
+                }`}
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
 
           {/* ================= MOBILE MENU BUTTON ================= */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 z-50 relative focus:outline-none rounded-full backdrop-blur-sm active:scale-95 transition-all duration-200 border ${
+            className={`lg:hidden p-2.5 z-50 relative focus:outline-none rounded-full backdrop-blur-sm active:scale-90 transition-all duration-200 border ${
               isOnLight
                 ? "text-white bg-white/10 border-white/20"
                 : "text-white bg-white/10 border-white/10"
             }`}
           >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
+
       </nav>
 
       {/* ================= MOBILE MENU OVERLAY ================= */}

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { ChevronDown, ArrowRight, Globe, TrendingUp, Users, BarChart2, Search, Sparkles, Check, Zap } from "lucide-react";
+import { ChevronDown, ArrowRight, Globe, TrendingUp, Users, BarChart2, Search, Sparkles, Check, Zap, Linkedin } from "lucide-react";
 
 /* ───────────────────────── ANIMATION HELPERS ───────────────────────── */
 
@@ -414,8 +414,8 @@ const DirectorsSection = () => {
 
                 <div className="pt-4">
                    <button className="flex items-center gap-4 group">
-                      <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-300">
-                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                       <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center transition-all duration-300">
+                         <Linkedin size={18} className="text-white" />
                       </div>
                       <span className="text-black font-black text-xs tracking-widest uppercase">Connect on LinkedIn</span>
                    </button>
