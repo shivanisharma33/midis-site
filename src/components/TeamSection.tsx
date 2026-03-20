@@ -99,14 +99,14 @@ export const TeamSection: React.FC = () => {
       role: "SEO EXPERT",
     },
     {
-      img: "/GRAPHIC DESIGNER (1)/.jpg",
+      img: "/GRAPHIC DESIGNER (1)/chanda.png",
       name: "CHANDA ANGRAL",
       role: "GRAPHIC DESIGNER",
     },
     {
       img: "/GRAPHIC DESIGNER (1)/6.jpg",
-      name: "PURUVJIT",
-      role: "CHIEF TECHNOLOGY OFFICER",
+      name: "ALOK YADAV",
+      role: "VIDEO EDITOR",
     },
   ];
 

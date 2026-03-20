@@ -93,7 +93,7 @@ export const Navigation = () => {
                 to={item.to}
                 className={`relative h-full flex items-center px-3 xl:px-4 text-[11px] xl:text-[12px] font-bold uppercase tracking-widest transition-all duration-300 group text-black/50 hover:text-orange-600`}
               >
-                <span className="relative z-10 transition-transform duration-300 group-hover:scale-[1.25] block">
+                <span className="relative z-10 transition-all duration-300 group-hover:scale-[1.25] group-hover:drop-shadow-[0_0_10px_rgba(234,88,12,0.4)] block">
                   {item.label}
                 </span>
               </Link>

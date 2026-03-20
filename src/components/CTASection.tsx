@@ -105,7 +105,7 @@ export const CTASection = () => {
               }}
             >
               <img
-                src="/images/testimonial-bg.webp"
+                src="/images/ctaaaa.avif"
                 alt="CTA"
                 loading="lazy"
                 decoding="async"

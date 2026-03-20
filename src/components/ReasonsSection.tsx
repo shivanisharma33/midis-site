@@ -14,22 +14,22 @@ const items: ReasonItem[] = [
   {
     number: "01.",
     title: "PROVEN ROI &\nDIGITAL GROWTH",
-    image: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?w=1600&auto=format&q=80",
+    image: "/images/growth (27).avif",
   },
   {
     number: "02.",
     title: "CREATIVE MASTERY &\nBRAND STRATEGY",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&auto=format&q=80",
+    image: "/images/growth (28).avif",
   },
   {
     number: "03.",
     title: "TECHNICAL SEO &\nPERFORMANCE",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&auto=format&q=80",
+    image: "/images/growth (29).avif",
   },
   {
     number: "04.",
     title: "SOCIAL MEDIA &\nAD EXPERTS",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1600&auto=format&q=80",
+    image: "/images/growth (30).avif",
   },
 ];
 
