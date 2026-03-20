@@ -83,7 +83,7 @@ export const Navigation = () => {
           {/* ================= CENTER PILL ================= */}
           <div className={`
             hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center rounded-full shadow-lg transition-all duration-500
-            px-4 xl:px-8 py-2 md:py-2.5 gap-4 xl:gap-8
+            px-4 xl:px-8 h-[52px] xl:h-[60px] gap-2 xl:gap-6
             ${isOnLight ? "bg-white" : "bg-white"}
             min-w-fit whitespace-nowrap
           `}>
@@ -91,21 +91,22 @@ export const Navigation = () => {
               <Link
                 key={item.label}
                 to={item.to}
-                className={`text-[11px] xl:text-[13px] font-bold uppercase tracking-widest transition-colors ${isActive(item.to)
-                  ? "text-black"
-                  : "text-black/50 hover:text-black"
-                  }`}
+                className={`relative h-full flex items-center px-3 xl:px-4 text-[11px] xl:text-[12px] font-bold uppercase tracking-widest transition-all duration-300 group text-black/50 hover:text-orange-600`}
               >
-                {item.label}
+                <span className="relative z-10 transition-transform duration-300 group-hover:scale-[1.25] block">
+                  {item.label}
+                </span>
               </Link>
             ))}
 
-            <Link 
-              to="/work"
-              className="w-8 h-8 xl:w-10 xl:h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-orange-600 transition-all duration-300 shadow-md"
-            >
-              <ArrowUpRight size={14} className="xl:size-[16px]" />
-            </Link>
+            <div className="pl-2 border-l border-black/5 h-1/2 flex items-center">
+              <Link 
+                to="/work"
+                className="w-9 h-9 xl:w-11 xl:h-11 rounded-full bg-black text-white flex items-center justify-center hover:bg-orange-600 transition-all duration-300 shadow-md group"
+              >
+                <ArrowUpRight size={14} className="xl:size-[16px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
           </div>
 
           {/* ================= RIGHT SIDE (DESKTOP ICONS) ================= */}
