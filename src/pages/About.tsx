@@ -308,6 +308,130 @@ const WhyMidisSection = () => {
   );
 };
 
+/* ═══════════════════════════════════════════════════════
+   COMPONENT 4 — DIRECTORS SECTION
+   ═══════════════════════════════════════════════════════ */
+
+
+
+const DirectorsSection = () => {
+  const directors = [
+    {
+      name: "Sagar Bakshi",
+      role: "Managing Director",
+      bio: "Sagar Bakshi is the Managing Director of Midis, where he leads strategy, operations, and digital growth initiatives. With a focus on AI-driven solutions, automation, and brand building, he helps businesses scale smarter and faster while turning complex challenges into clear, actionable strategies. Sagar brings hands-on experience from multiple e-commerce ventures, ranging from home decor and wellness brands to streetwear, ensuring every project is designed for practical growth and long-term success.",
+      image: "/images/Sagar-bakshi.jpg.webp",
+      bg: "bg-orange-50/50",
+      num: "01"
+    },
+    {
+      name: "Gaurav Sharma",
+      role: "CEO & Director",
+      bio: "Gaurav Sharma is the CEO and a Director at Midis, where he drives the company’s vision, strategy, and innovation. With deep expertise in digital solutions, branding, marketing, and web development, he ensures that every project delivers measurable results and meaningful impact for clients. Gaurav plays a pivotal role at Mining Discovery, overseeing content strategy, platform growth, and insights delivery for the global mining industry.",
+      image: "/images/gaurav-sharma.png",
+      bg: "bg-blue-50/50",
+      num: "02"
+    }
+  ];
+
+  return (
+    <section className="bg-white py-0 overflow-hidden">
+      {/* Intro Header */}
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-24 py-24 md:py-32">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
+          <div className="flex items-center gap-4">
+            <span className="w-12 h-[2px] bg-black" />
+            <span className="text-black font-black text-[12px] tracking-[0.4em] uppercase">The Visionaries</span>
+          </div>
+          <h2 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black uppercase text-[#0C0E12] leading-[0.85] tracking-tighter">
+            DRIVING THE <br />
+            <span className="text-transparent" style={{ WebkitTextStroke: '2px black' }}>FUTURE OF MIDIS</span>
+          </h2>
+        </motion.div>
+      </div>
+
+      {/* Split Screen Rows */}
+      <div className="flex flex-col border-t border-black/5">
+        {directors.map((director, i) => (
+          <div key={i} className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[80vh] border-b border-black/5`}>
+            
+            {/* Image Half - Full Bleed */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2 relative group overflow-hidden h-[500px] lg:h-auto"
+            >
+              <img 
+                src={director.image} 
+                alt={director.name} 
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105" 
+              />
+              <div className={`absolute inset-0 ${director.bg} mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity duration-700`} />
+              
+              {/* Floating ID Tag */}
+              <div className="absolute top-10 left-10 lg:left-20 bg-white px-6 py-2 rounded-full shadow-2xl">
+                 <span className="text-black font-black text-sm tracking-widest">{director.num}</span>
+              </div>
+            </motion.div>
+
+            {/* Content Half - Minimalist centered */}
+            <div className="lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24 bg-white relative">
+              {/* Background Large Number Watermark */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
+                <span className="text-[25vw] font-black leading-none" style={{ fontFamily: 'Anton, sans-serif' }}>
+                  {director.num}
+                </span>
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: i % 2 === 0 ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="max-w-md space-y-10 relative z-10"
+              >
+                <div className="space-y-4">
+                  <div className="w-12 h-1 bg-orange-600" />
+                  <span className="block text-orange-600 font-bold text-[13px] tracking-[0.3em] uppercase">
+                    {director.role}
+                  </span>
+                  <h3 className="text-5xl md:text-7xl font-black uppercase text-[#0C0E12] tracking-tighter leading-none" style={{ fontFamily: 'Anton, sans-serif' }}>
+                    {director.name.split(' ')[0]} <br />
+                    <span className="text-transparent" style={{ WebkitTextStroke: '2px #0C0E12' }}>{director.name.split(' ')[1]}</span>
+                  </h3>
+                </div>
+
+                <p className="text-[#3a3a4a] text-lg md:text-xl leading-relaxed font-medium">
+                  {director.bio}
+                </p>
+
+                <div className="pt-4">
+                   <button className="flex items-center gap-4 group">
+                      <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-300">
+                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
+                      <span className="text-black font-black text-xs tracking-widest uppercase">Connect on LinkedIn</span>
+                   </button>
+                </div>
+              </motion.div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+
+
 
 
 /* ═══════════════════════════════════════════════════════
@@ -493,6 +617,8 @@ const AboutPage = () => {
 
       {/* 3. Why Midis */}
       <WhyMidisSection />
+      {/* 4. Directors Section */}
+      <DirectorsSection />
 
 
 

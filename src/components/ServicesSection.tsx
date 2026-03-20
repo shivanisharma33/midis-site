@@ -6,7 +6,7 @@ const services = [
     description:
       "Transform your vision into stunning digital experiences. Our expert designers craft responsive, user-centric interfaces that captivate your audience and elevate your brand's online presence with cutting-edge aesthetics.",
     tags: ["UI Design", "UX Strategy", "Responsive Design", "Prototyping"],
-    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/WEB DESIGN.avif",
   },
   {
     number: "02",
@@ -14,7 +14,7 @@ const services = [
     description:
       "Build powerful digital solutions with our full-stack development expertise. From concept to deployment, we create robust, scalable, and high-performing websites that drive growth and deliver exceptional user experiences.",
     tags: ["Frontend", "Backend", "Full Stack", "API Integration"],
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop",
+    image: "/images/WEB DEVELOPMENT.avif",
   },
   {
     number: "03",
@@ -22,7 +22,7 @@ const services = [
     description:
       "Dominate search rankings and drive organic traffic with our strategic SEO solutions. We optimize every aspect of your digital presence to increase visibility, engage your target audience, and maximize conversions.",
     tags: ["On-Page SEO", "Technical SEO", "Content Strategy", "Link Building"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    image: "/images/SEO .avif",
   },
   {
     number: "04",
@@ -30,7 +30,7 @@ const services = [
     description:
       "Create compelling visual narratives that resonate with your audience. Our creative designers blend artistry with strategy to produce captivating graphics, branding assets, and visual content that sets you apart.",
     tags: ["Branding", "Logo Design", "Marketing Materials", "Visual Identity"],
-    image: "/images/graphic_service.png",
+    image: "/images/GRAOHIC DESIGN.avif",
   },
   {
     number: "05",
@@ -38,7 +38,7 @@ const services = [
     description:
       "Maximize your advertising ROI with data-driven paid campaigns. Our specialists craft and optimize high-converting ads across Google and Meta platforms.",
     tags: ["Google Ads", "Facebook Ads", "Campaign Management", "Analytics"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/GOOGLEE.avif",
   },
 ];
 

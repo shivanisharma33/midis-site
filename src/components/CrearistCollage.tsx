@@ -237,7 +237,7 @@ export default function CrearistCollage() {
           className="absolute left-[18%] top-[25%] w-[21vw] aspect-[3/4.4] overflow-hidden shadow-2xl z-20"
         >
           <img
-            src="/images/growth (9).avif"
+            src="/images/growth (16).avif"
             alt="Main Portrait"
             className="w-full h-full object-cover"
           />
@@ -249,7 +249,7 @@ export default function CrearistCollage() {
           className="absolute left-[30%] top-[15%] w-[13vw] aspect-square z-30 pointer-events-none"
         >
           <img
-            src="/images/yel.avif"
+            src="/images/m.avif"
             alt="Gold Asset"
             className="w-full h-full object-contain"
           />
@@ -261,7 +261,7 @@ export default function CrearistCollage() {
           className="absolute left-[37%] top-[54%] w-[11vw] aspect-square z-25 pointer-events-none"
         >
           <img
-            src="/images/growth (8).avif"
+            src="/images/growth (14).avif"
             alt="Orange"
             className="w-full h-full object-contain"
           />
@@ -273,7 +273,7 @@ export default function CrearistCollage() {
           className="absolute left-[47%] top-[10%] w-[25vw] h-[35vw] overflow-hidden z-10"
         >
           <img
-            src="/images/1 .avif"
+             src="/images/growth (17).avif"
             alt="Motion Portrait"
             className="w-full h-full object-cover"
           />
@@ -285,7 +285,7 @@ export default function CrearistCollage() {
           className="absolute left-[68%] top-[32%] w-[19vw] aspect-[4/3] z-20"
         >
           <img
-            src="/images/tv.avif"
+            src="/images/growth (15).avif"
             alt="Asset"
             className="w-full h-full object-contain"
           />
@@ -351,7 +351,7 @@ export default function CrearistCollage() {
       >
         <div ref={imgStack2Ref} className="block w-full h-[50vh] md:w-1/2 md:h-full overflow-hidden">
           <img
-            src="/images/2 cccc.avif"
+            src="/images/why 1.avif"
             alt="Stack 2"
             className="w-full h-full object-cover"
           />
