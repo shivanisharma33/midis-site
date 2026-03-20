@@ -221,7 +221,7 @@ export default function CrearistCollage() {
       <div className="md:hidden w-full px-0 mb-12">
         <div ref={imgMotionMobileRef} className="w-full h-[50vh] overflow-hidden">
           <img
-          src="/images/1 .avif"
+            src="/images/growth (17).avif"
             alt="Motion Portrait"
             className="w-full h-full object-cover"
           />
