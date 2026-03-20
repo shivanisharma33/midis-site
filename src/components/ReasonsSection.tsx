@@ -248,11 +248,11 @@ export const ReasonsSection: React.FC = () => {
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${isActive ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                   }`}
               >
-                <div className="relative w-full h-[300px]">
+                <div className="relative w-full">
                   <img
                     src={item.image}
                     alt=""
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto block"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
                 </div>
