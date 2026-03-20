@@ -154,11 +154,6 @@ export const TeamSection: React.FC = () => {
                   className="max-w-full max-h-full object-contain"
                 />
 
-                {/* ===== DIAGONAL CORNER TAG ===== */}
-                <div className="corner-ribbon">
-                  {member.role}
-                </div>
-
                 {/* ===== BOTTOM MARQUEE ===== */}
                 <div className="marquee-wrap">
                   <div className="marquee">
