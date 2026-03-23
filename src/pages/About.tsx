@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { ChevronDown, ArrowRight, Globe, TrendingUp, Users, BarChart2, Sparkles, Check, Zap, Linkedin } from "lucide-react";
+import { ChevronDown, ArrowRight, Sparkles, Check, Zap, Linkedin, Orbit, Rocket, HeartHandshake } from "lucide-react";
 
 /* ───────────────────────── ANIMATION HELPERS ───────────────────────── */
 
@@ -27,25 +27,25 @@ const staggerContainer = {
 
 const whyMidisReasons = [
   {
-    icon: Globe,
+    icon: Orbit,
     title: "Global Perspective",
     desc: "We understand how people behave online in different cultures, so our strategies adapt—they are not copy-paste.",
     color: "from-blue-500/20 to-cyan-500/20"
   },
   {
-    icon: TrendingUp,
+    icon: Rocket,
     title: "Return on Investment",
     desc: "We don't celebrate likes or impressions. We celebrate leads, sales, and revenue growth.",
     color: "from-green-500/20 to-emerald-500/20"
   },
   {
-    icon: Users,
+    icon: HeartHandshake,
     title: "Real Collaboration",
     desc: "We don't disappear after sending a report. We work alongside you, adjusting strategy when the market shifts.",
     color: "from-orange-500/20 to-amber-500/20"
   },
   {
-    icon: BarChart2,
+    icon: Zap,
     title: "Ideas & Data Balance",
     desc: "We love creative campaigns, but numbers keep us grounded.",
     color: "from-purple-500/20 to-pink-500/20"
@@ -292,12 +292,16 @@ const WhyMidisSection = () => {
 
               <div className="relative z-10">
                 <div className="flex items-start gap-5">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${reason.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500`}>
-                    <reason.icon size={28} className="text-black/80" />
+                  <div className={`w-16 h-16 rounded-[20px] bg-gradient-to-br ${reason.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm border border-black/5 relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
+                    <reason.icon
+                      size={28}
+                      className={`text-black/80 relative z-10 ${reason.icon === Orbit ? "animate-[spin_10s_linear_infinite]" : ""}`}
+                    />
                   </div>
                   <div>
-                    <h3 className="text-xl md:text-2xl font-black uppercase text-[#0C0E12] tracking-tight mb-3 leading-tight">{reason.title}</h3>
-                    <p className="text-[#5a5a6a] text-base leading-relaxed font-medium">{reason.desc}</p>
+                    <h3 className="text-xl md:text-2xl font-black uppercase text-[#0C0E12] tracking-tight mb-2 leading-tight group-hover:text-orange-600 transition-colors duration-300">{reason.title}</h3>
+                    <p className="text-[#5a5a6a] text-base leading-relaxed font-medium group-hover:text-[#2a2a3a] transition-colors duration-300">{reason.desc}</p>
                   </div>
                 </div>
               </div>
@@ -339,7 +343,7 @@ const DirectorsSection = () => {
     <section className="bg-white py-0 overflow-hidden">
       {/* Intro Header */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-24 py-24 md:py-32">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -360,25 +364,25 @@ const DirectorsSection = () => {
       <div className="flex flex-col border-t border-black/5">
         {directors.map((director, i) => (
           <div key={i} className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[80vh] border-b border-black/5`}>
-            
+
             {/* Image Half - Full Bleed */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
               className="lg:w-1/2 relative group overflow-hidden h-[500px] lg:h-auto"
             >
-              <img 
-                src={director.image} 
-                alt={director.name} 
-                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105" 
+              <img
+                src={director.image}
+                alt={director.name}
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105"
               />
               <div className={`absolute inset-0 ${director.bg} mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity duration-700`} />
-              
+
               {/* Floating ID Tag */}
               <div className="absolute top-10 left-10 lg:left-20 bg-white px-6 py-2 rounded-full shadow-2xl">
-                 <span className="text-black font-black text-sm tracking-widest">{director.num}</span>
+                <span className="text-black font-black text-sm tracking-widest">{director.num}</span>
               </div>
             </motion.div>
 
@@ -391,7 +395,7 @@ const DirectorsSection = () => {
                 </span>
               </div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: i % 2 === 0 ? 30 : -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -414,12 +418,12 @@ const DirectorsSection = () => {
                 </p>
 
                 <div className="pt-4">
-                   <button className="flex items-center gap-4 group">
-                       <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center transition-all duration-300">
-                         <Linkedin size={18} className="text-white" />
-                      </div>
-                      <span className="text-black font-black text-xs tracking-widest uppercase">Connect on LinkedIn</span>
-                   </button>
+                  <button className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center transition-all duration-300">
+                      <Linkedin size={18} className="text-white" />
+                    </div>
+                    <span className="text-black font-black text-xs tracking-widest uppercase">Connect on LinkedIn</span>
+                  </button>
                 </div>
               </motion.div>
             </div>
