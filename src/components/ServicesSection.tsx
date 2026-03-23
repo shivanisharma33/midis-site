@@ -7,6 +7,7 @@ const services = [
       "Transform your vision into stunning digital experiences. Our expert designers craft responsive, user-centric interfaces that captivate your audience and elevate your brand's online presence with cutting-edge aesthetics.",
     tags: ["UI Design", "UX Strategy", "Responsive Design", "Prototyping"],
     image: "/MIDIS/photo-1579389083078-4e7018379f7e.avif",
+    color: "#FF6B35"
   },
   {
     number: "02",
@@ -15,6 +16,7 @@ const services = [
       "Build powerful digital solutions with our full-stack development expertise. From concept to deployment, we create robust, scalable, and high-performing websites that drive growth and deliver exceptional user experiences.",
     tags: ["Frontend", "Backend", "Full Stack", "API Integration"],
     image: "/MIDIS/photo-1468436139062-f60a71c5c892.avif",
+    color: "#00BBF9"
   },
   {
     number: "03",
@@ -23,6 +25,7 @@ const services = [
       "Dominate search rankings and drive organic traffic with our strategic SEO solutions. We optimize every aspect of your digital presence to increase visibility, engage your target audience, and maximize conversions.",
     tags: ["On-Page SEO", "Technical SEO", "Content Strategy", "Link Building"],
     image: "/MIDIS/photo-1480694313141-fce5e697ee25.avif",
+    color: "#F9C74F"
   },
   {
     number: "04",
@@ -31,6 +34,7 @@ const services = [
       "Create compelling visual narratives that resonate with your audience. Our creative designers blend artistry with strategy to produce captivating graphics, branding assets, and visual content that sets you apart.",
     tags: ["Branding", "Logo Design", "Marketing Materials", "Visual Identity"],
     image: "/MIDIS/divine_aesthetic_design__marketing_cover.jpg",
+    color: "#F94144"
   },
   {
     number: "05",
@@ -39,6 +43,7 @@ const services = [
       "Maximize your advertising ROI with data-driven paid campaigns. Our specialists craft and optimize high-converting ads across Google and Meta platforms.",
     tags: ["Google Ads", "Facebook Ads", "Campaign Management", "Analytics"],
     image: "/MIDIS/53c12dc9df93a32c024fd34facd4139a.jpg",
+    color: "#90BE6D"
   },
 ];
 
@@ -83,14 +88,24 @@ export const ServicesSection = () => {
                       {service.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-x-6 gap-y-4 mt-8">
                       {service.tags.map((tag) => (
-                        <span
+                        <div
                           key={tag}
-                          className="text-[9px] md:text-[11px] uppercase tracking-[0.2em] font-bold border border-white/30 text-white px-5 py-2.5 rounded-full"
+                          className="group/tag relative cursor-pointer"
                         >
-                          {tag}
-                        </span>
+                          {/* Background Marker Highlight */}
+                          <div 
+                            className="absolute -inset-x-2 inset-y-0.5 opacity-0 group-hover/tag:opacity-100 transition-all duration-300 rounded-sm"
+                            style={{ backgroundColor: service.color }}
+                          />
+                          
+                          <span 
+                            className="relative z-10 text-[11px] md:text-[13px] font-black uppercase tracking-[0.2em] text-white/40 group-hover/tag:text-black transition-colors duration-300"
+                          >
+                            {tag}
+                          </span>
+                        </div>
                       ))}
                     </div>
                   </div>

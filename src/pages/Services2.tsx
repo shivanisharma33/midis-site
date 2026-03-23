@@ -382,7 +382,7 @@ const ExploreServices = ({ onExplore }: { onExplore: (service: typeof servicesDa
 
   // Spring-based text animations with smaller offset on mobile
   const [offsetRange, setOffsetRange] = useState({ left: -200, right: 200 });
-  
+
   useEffect(() => {
     const updateRange = () => {
       const isMobile = window.innerWidth < 768;
@@ -410,8 +410,8 @@ const ExploreServices = ({ onExplore }: { onExplore: (service: typeof servicesDa
       <div className="max-w-[1500px] mx-auto">
         {/* Heading - Responsive */}
         <div className="flex flex-col mb-12 sm:mb-24 lg:mb-32 relative w-full items-center">
-          <motion.div 
-            style={{ x: xExplore, willChange: "transform" }} 
+          <motion.div
+            style={{ x: xExplore, willChange: "transform" }}
             className="w-full"
           >
             <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[13vw] font-black uppercase tracking-tighter leading-[0.85] text-black text-center sm:text-left">
