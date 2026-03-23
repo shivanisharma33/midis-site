@@ -10,7 +10,8 @@ import {
   Loader2,
   Instagram,
   Linkedin,
-  Twitter
+  Facebook,
+  Youtube
 } from "lucide-react";
 
 export default function Contact() {
@@ -62,9 +63,10 @@ export default function Contact() {
 
 
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" }
+    { icon: Instagram, href: "https://www.instagram.com/officialmidis/", label: "Instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/unavailable/", label: "LinkedIn" },
+    { icon: Facebook, href: "https://www.facebook.com/people/Midis/61579354660327/", label: "Facebook" },
+    { icon: Youtube, href: "https://www.youtube.com/@MidisOfficial", label: "Youtube" }
   ];
 
   const services = [
@@ -198,6 +200,8 @@ export default function Contact() {
                     <motion.a
                       key={social.label}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       className="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#0C0E12] hover:border-[#0C0E12] transition-all duration-300 group"
