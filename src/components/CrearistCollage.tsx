@@ -351,7 +351,7 @@ export default function CrearistCollage() {
       >
         <div ref={imgStack2Ref} className="block w-full h-[50vh] md:w-1/2 md:h-full overflow-hidden">
           <img
-            src="/images/why 1.avif"
+            src="/MIDIS/71c06f41f9f6c6715b4de3690ed53236 copy.jpg"
             alt="Stack 2"
             className="w-full h-full object-cover"
           />
