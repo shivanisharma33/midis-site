@@ -128,22 +128,22 @@ const ExperienceSection = () => {
             </a>
           </div>
 
-          {/* Image with GPU-accelerated Animation */}
+          {/* Image with simpler Mobile Reveal */}
           <motion.div
-            initial={{ clipPath: "inset(100% 0 0 0)" }}
-            whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 sm:mt-20 relative aspect-[16/10] rounded-lg overflow-hidden shadow-2xl will-change-[clip-path]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="mt-12 sm:mt-20 relative aspect-[16/10] sm:aspect-[4/3] rounded-lg overflow-hidden shadow-2xl"
           >
             <motion.img
-              initial={{ scale: 1.2 }}
+              initial={{ scale: 1.1 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
               src="/images/fresh-idea-1.webp"
-              alt="Experience"
-              className="w-full h-full object-cover will-change-transform"
+              alt="Who Are We Image"
+              className="w-full h-full object-cover"
             />
           </motion.div>
         </div>
