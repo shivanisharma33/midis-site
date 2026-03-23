@@ -65,13 +65,8 @@ const CaseStudy: React.FC = () => {
                   style={{ fontFamily: 'Anton, sans-serif' }}
                 >
                   <span>VISIONS</span>
-                  <div className="relative inline-block w-[1.5em] h-[0.6em] md:w-[2em] md:h-[0.8em] overflow-hidden rounded-full ring-2 ring-orange-500/20 shadow-xl vertical-middle mx-2 mt-[0.05em]">
-                    <img 
-                      src="/abstract_oval.png" 
-                      alt="Impact Decorative" 
-                      className="w-full h-full object-cover scale-150 animate-pulse-slow"
-                    />
-                  </div>
+                  {/* Removed Decorative Image */}
+
                   <span>& IMPACT</span>
                 </motion.div>
               </div>

@@ -94,12 +94,12 @@ const FuelingYourGrowthWithFreshIdeas: React.FC = () => {
           "
         >
           <img
-            src="/images/GROWTH STrtup.avif"
+            src="/MIDIS/a54a634124ad63442b5f54bade85751d.jpg"
             alt="Growth Idea 1"
             className="w-full h-[50vh] sm:h-[60vh] object-cover md:absolute md:top-0 md:left-0 md:h-full md:w-full"
           />
           <img
-            src="/images/GROWTH STrtup (1).avif"
+            src="/MIDIS/3b51c993abf75b4afd5f93cc6602eea6.jpg"
             alt="Growth Idea 2"
             className="hidden md:block w-full h-[50vh] sm:h-[60vh] object-cover mb-1 md:mb-0 md:absolute md:top-0 md:left-0 md:h-full md:w-full"
           />
@@ -138,10 +138,10 @@ const FuelingYourGrowthWithFreshIdeas: React.FC = () => {
               </div>
               <div className="pt-1">
                 <a
-                  href="mailto:info@midis.in"
-                  className="text-black border-b border-gray-700 pb-[3px] text-[14px] sm:text-[16px] font-medium"
+                  href="mailto:Hello@midis.in"
+                  className="text-black border-b border-gray-700 pb-[3px] text-[14px] sm:text-[16px] font-medium uppercase"
                 >
-                  INFO@MIDIS.IN
+                  Hello@midis.in
                 </a>
               </div>
             </div>

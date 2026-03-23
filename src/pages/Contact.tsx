@@ -173,7 +173,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Email Us</p>
-                    <p className="text-xl font-bold text-[#0C0E12]">hello@midis.in</p>
+                    <a href="mailto:hello@midis.in" className="text-xl font-bold text-[#0C0E12] hover:text-orange-600 transition-colors">hello@midis.in</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-6">

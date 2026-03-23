@@ -6,7 +6,7 @@ const services = [
     description:
       "Transform your vision into stunning digital experiences. Our expert designers craft responsive, user-centric interfaces that captivate your audience and elevate your brand's online presence with cutting-edge aesthetics.",
     tags: ["UI Design", "UX Strategy", "Responsive Design", "Prototyping"],
-    image: "/images/WEB DESIGN.avif",
+    image: "/MIDIS/photo-1579389083078-4e7018379f7e.avif",
   },
   {
     number: "02",
@@ -14,7 +14,7 @@ const services = [
     description:
       "Build powerful digital solutions with our full-stack development expertise. From concept to deployment, we create robust, scalable, and high-performing websites that drive growth and deliver exceptional user experiences.",
     tags: ["Frontend", "Backend", "Full Stack", "API Integration"],
-    image: "/images/WEB DEVELOPMENT.avif",
+    image: "/MIDIS/photo-1468436139062-f60a71c5c892.avif",
   },
   {
     number: "03",
@@ -22,7 +22,7 @@ const services = [
     description:
       "Dominate search rankings and drive organic traffic with our strategic SEO solutions. We optimize every aspect of your digital presence to increase visibility, engage your target audience, and maximize conversions.",
     tags: ["On-Page SEO", "Technical SEO", "Content Strategy", "Link Building"],
-    image: "/images/SEO .avif",
+    image: "/MIDIS/photo-1480694313141-fce5e697ee25.avif",
   },
   {
     number: "04",
@@ -30,7 +30,7 @@ const services = [
     description:
       "Create compelling visual narratives that resonate with your audience. Our creative designers blend artistry with strategy to produce captivating graphics, branding assets, and visual content that sets you apart.",
     tags: ["Branding", "Logo Design", "Marketing Materials", "Visual Identity"],
-    image: "/images/GRAOHIC DESIGN.avif",
+    image: "/MIDIS/divine_aesthetic_design__marketing_cover.jpg",
   },
   {
     number: "05",
@@ -38,7 +38,7 @@ const services = [
     description:
       "Maximize your advertising ROI with data-driven paid campaigns. Our specialists craft and optimize high-converting ads across Google and Meta platforms.",
     tags: ["Google Ads", "Facebook Ads", "Campaign Management", "Analytics"],
-    image: "/images/GOOGLEE.avif",
+    image: "/MIDIS/53c12dc9df93a32c024fd34facd4139a.jpg",
   },
 ];
 

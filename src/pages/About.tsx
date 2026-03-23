@@ -121,7 +121,9 @@ const AboutHero = () => {
       <div className="max-w-[1400px] mx-auto relative z-10 w-full flex flex-col items-center justify-center px-6 pt-40 pb-16 min-h-screen">
         {/* Top Label */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="flex items-center gap-3 mb-12">
-          <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+          <div className="w-10 h-10 rounded-xl bg-orange-600/10 flex items-center justify-center text-orange-600 backdrop-blur-md border border-orange-600/20 animate-pulse">
+            <Sparkles size={20} strokeWidth={2.5} fill="currentColor" className="opacity-80" />
+          </div>
           <span className="text-white/50 text-[11px] uppercase font-semibold tracking-[0.3em]">About Midis</span>
           <div className="w-12 h-px bg-white/20" />
         </motion.div>
@@ -138,12 +140,8 @@ const AboutHero = () => {
           <div className="flex flex-wrap justify-center items-center gap-x-[0.2em] md:gap-x-[0.35em] mt-1">
             {sublineWords.map((word, i) => (
               <motion.span key={`s-${i}`} initial={{ opacity: 0, y: 80, rotateX: 90 }} animate={{ opacity: 1, y: 0, rotateX: 0 }} transition={{ duration: 0.8, delay: 0.55 + i * 0.12, ease: [0.16, 1, 0.3, 1] }} className="inline-flex items-center">
-                {i === 1 && (
-                  <motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.9, ease: "easeOut" }} className="relative inline-block w-[1.8em] h-[0.6em] md:w-[2.5em] md:h-[0.75em] overflow-hidden rounded-full mx-3 ring-1 ring-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.2)] mt-[0.04em]">
-                    <img src="/abstract_oval.png" alt="Decorative" className="w-full h-full object-cover scale-150" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-transparent to-purple-500/20 mix-blend-overlay" />
-                  </motion.div>
-                )}
+                {/* Removed Hero Image Decoration */}
+
                 <span className={`text-[clamp(2.8rem,11vw,10rem)] leading-[0.9] font-normal uppercase tracking-tight ${i === 2 ? "bg-gradient-to-r from-orange-400 via-orange-300 to-amber-200 bg-clip-text text-transparent" : "text-white"}`} style={{ fontFamily: "Anton, sans-serif" }}>
                   {word}
                 </span>
@@ -201,7 +199,9 @@ const WhoWeAreSection = () => {
       <div className="max-w-[1300px] mx-auto">
         {/* Label */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-center gap-3 mb-10">
-          <div className="w-2 h-2 rounded-full bg-orange-500" />
+          <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-600 backdrop-blur-md border border-orange-500/20">
+            <Sparkles size={20} strokeWidth={3} />
+          </div>
           <span className="text-black font-bold text-[11px] tracking-[0.25em] uppercase">Who We Are</span>
         </motion.div>
 
@@ -262,8 +262,8 @@ const WhyMidisSection = () => {
       <div className="max-w-[1300px] mx-auto">
         {/* Header */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-600">
-            <Search size={16} strokeWidth={3} />
+          <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-600 backdrop-blur-md border border-orange-500/20">
+            <Sparkles size={20} strokeWidth={3} />
           </div>
           <span className="text-black font-bold text-[11px] tracking-[0.25em] uppercase">Why Choose Us</span>
         </motion.div>
@@ -446,8 +446,8 @@ const GainsSection = () => {
           {/* Left */}
           <div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-orange-600/10 flex items-center justify-center text-orange-600 animate-pulse">
-                <Zap size={16} strokeWidth={2.5} fill="currentColor" className="opacity-80" />
+              <div className="w-10 h-10 rounded-xl bg-orange-600/10 flex items-center justify-center text-orange-600 backdrop-blur-md border border-orange-600/20 animate-pulse">
+                <Sparkles size={20} strokeWidth={2.5} fill="currentColor" className="opacity-80" />
               </div>
               <span className="text-black font-bold text-[11px] tracking-[0.25em] uppercase">Partnership</span>
             </motion.div>
@@ -469,10 +469,11 @@ const GainsSection = () => {
                 key={i}
                 variants={fadeUp}
                 custom={i}
-                className="group flex items-start gap-5 p-6 rounded-2xl bg-[#faf9f7] border border-black/5 hover:border-orange-500/20 hover:shadow-lg transition-all duration-500"
+                className="group flex items-start gap-5 p-6 rounded-2xl bg-[#faf9f7] border border-black/5 hover:border-orange-500/20 hover:shadow-xl transition-all duration-500"
               >
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-600 to-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-orange-500/20">
-                  <ArrowRight className="w-4 h-4 text-white" strokeWidth={3} />
+                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 backdrop-blur-md border border-orange-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300 shadow-sm relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-600/10 to-transparent" />
+                  <Sparkles className="w-5 h-5 text-orange-600 relative z-10" strokeWidth={2.5} />
                 </div>
                 <p className="text-[#2a2a3a] text-base md:text-lg font-semibold leading-relaxed">{gain.text}</p>
               </motion.div>
@@ -518,7 +519,9 @@ const FAQSection = () => {
       <div className="max-w-[1000px] mx-auto">
         {/* Header */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-center gap-3 mb-6">
-          <div className="w-2 h-2 rounded-full bg-orange-500" />
+          <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-600 backdrop-blur-md border border-orange-500/20">
+            <Sparkles size={20} strokeWidth={3} />
+          </div>
           <span className="text-black font-bold text-[11px] tracking-[0.25em] uppercase">FAQ</span>
         </motion.div>
 
@@ -565,7 +568,9 @@ const StartBuildingCTA = () => {
 
       <div className="max-w-[1000px] mx-auto relative z-10 text-center">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+          <div className="w-10 h-10 rounded-xl bg-orange-600/10 flex items-center justify-center text-orange-600 backdrop-blur-md border border-orange-600/20 animate-pulse">
+            <Sparkles size={20} strokeWidth={2.5} fill="currentColor" className="opacity-80" />
+          </div>
           <span className="text-white/40 font-bold text-[11px] tracking-[0.25em] uppercase">Get Started</span>
         </motion.div>
 

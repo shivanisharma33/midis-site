@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowUpRight, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Menu, X, ArrowUpRight, Instagram, Linkedin, Youtube, Facebook } from "lucide-react";
 import { navItems } from "@/data/navigation";
 import { useScrollHide } from "@/hooks/useScrollHide";
 
@@ -112,9 +112,10 @@ export const Navigation = () => {
           {/* ================= RIGHT SIDE (DESKTOP ICONS) ================= */}
           <div className="hidden lg:flex items-center gap-2 xl:gap-4 z-10 shrink-0">
             {[
-              { icon: <Instagram size={18} />, href: "https://instagram.com" },
-              { icon: <Twitter size={18} />, href: "https://twitter.com" },
-              { icon: <Linkedin size={18} />, href: "https://linkedin.com" }
+              { icon: <Instagram size={18} />, href: "https://www.instagram.com/officialmidis/" },
+              { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/unavailable/" },
+              { icon: <Youtube size={18} />, href: "https://www.youtube.com/@MidisOfficial" },
+              { icon: <Facebook size={18} />, href: "https://www.facebook.com/people/Midis/61579354660327/" }
             ].map((social, i) => (
               <a
                 key={i}
@@ -170,24 +171,34 @@ export const Navigation = () => {
         </div>
 
         {/* Mobile Menu Footer (Social Icons) */}
-        <div className="pb-12 flex items-center justify-center gap-6">
+        <div className="pb-12 flex flex-wrap items-center justify-center gap-6 px-4">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/officialmidis/"
+            target="_blank" rel="noopener noreferrer"
             className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
           >
             <Instagram size={20} />
           </a>
           <a
-            href="https://twitter.com"
-            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
-          >
-            <Twitter size={20} />
-          </a>
-          <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/unavailable/"
+            target="_blank" rel="noopener noreferrer"
             className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
           >
             <Linkedin size={20} />
+          </a>
+          <a
+            href="https://www.youtube.com/@MidisOfficial"
+            target="_blank" rel="noopener noreferrer"
+            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
+          >
+            <Youtube size={20} />
+          </a>
+          <a
+            href="https://www.facebook.com/people/Midis/61579354660327/"
+            target="_blank" rel="noopener noreferrer"
+            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all"
+          >
+            <Facebook size={20} />
           </a>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Instagram, Linkedin, Youtube, Facebook } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -89,13 +89,13 @@ export const Footer = () => {
         <div className="footer-col">
           <h3 className="text-lg font-black uppercase tracking-tighter mb-6">Our Top Service</h3>
           <ul className="space-y-3 text-gray-400 text-sm font-medium">
-            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Web Development</Link></li>
-            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Web Designing</Link></li>
-            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Graphic Design</Link></li>
-            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Content Writing</Link></li>
-            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Video Editing</Link></li>
-            <li><Link to="/services" className="hover:text-orange-500 transition-colors">YouTube Management</Link></li>
-            <li><Link to="/services" className="hover:text-orange-500 transition-colors">Search Engine Optimization</Link></li>
+            <li><Link to="/services2" className="hover:text-orange-500 transition-colors">Web Development</Link></li>
+            <li><Link to="/services2" className="hover:text-orange-500 transition-colors">Web Designing</Link></li>
+            <li><Link to="/services2" className="hover:text-orange-500 transition-colors">Graphic Design</Link></li>
+            <li><Link to="/services2" className="hover:text-orange-500 transition-colors">Content Writing</Link></li>
+            <li><Link to="/services2" className="hover:text-orange-500 transition-colors">Video Editing</Link></li>
+            <li><Link to="/services2" className="hover:text-orange-500 transition-colors">YouTube Management</Link></li>
+            <li><Link to="/services2" className="hover:text-orange-500 transition-colors">Search Engine Optimization</Link></li>
           </ul>
         </div>
 
@@ -140,16 +140,16 @@ export const Footer = () => {
         <div className="footer-col">
           <h3 className="text-lg font-black uppercase tracking-tighter mb-6">Follow Us</h3>
           <div className="flex flex-wrap gap-4">
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+            <a href="https://www.instagram.com/officialmidis/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
               <Instagram size={18} className="group-hover:scale-110 transition-transform" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+            <a href="https://www.linkedin.com/company/unavailable/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
               <Linkedin size={18} className="group-hover:scale-110 transition-transform" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
-              <Twitter size={18} className="group-hover:scale-110 transition-transform" />
+            <a href="https://www.youtube.com/@MidisOfficial" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+              <Youtube size={18} className="group-hover:scale-110 transition-transform" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
+            <a href="https://www.facebook.com/people/Midis/61579354660327/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black hover:border-white transition-all duration-300 group">
               <Facebook size={18} className="group-hover:scale-110 transition-transform" />
             </a>
           </div>
