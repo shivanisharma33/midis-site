@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 const clientLogos = [
   {
@@ -107,9 +108,9 @@ const CaseStudy: React.FC = () => {
               <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral-400">
                 Featured projects
               </h2>
-              <button className="text-xs uppercase tracking-[0.2em] text-neutral-400 hover:text-white">
+              <Link to="/work" className="text-xs uppercase tracking-[0.2em] text-neutral-400 hover:text-white">
                 View all projects
-              </button>
+              </Link>
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

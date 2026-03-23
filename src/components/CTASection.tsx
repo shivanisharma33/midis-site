@@ -105,7 +105,7 @@ export const CTASection = () => {
               }}
             >
               <img
-                src="/MIDIS/growth (33).jpg"
+                src="/MIDIS/growth (33).avif"
                 alt="CTA"
                 loading="lazy"
                 decoding="async"

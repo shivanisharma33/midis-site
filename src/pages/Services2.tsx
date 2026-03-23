@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from "fram
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ServicePopup } from "@/components/services/ServicePopup";
 
@@ -628,13 +629,15 @@ const CTACollage = () => {
           <span className="block italic">Better <span className="not-italic text-[#0C0E12]">Together!</span></span>
         </h2>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-8 sm:px-10 py-4 sm:py-5 bg-[#14161B] text-white rounded-full font-bold uppercase tracking-widest text-[10px] sm:text-[11px] inline-flex items-center gap-2 sm:gap-3 shadow-2xl hover:bg-orange-600 transition-colors mx-auto"
-        >
-          View All Projects <ArrowUpRight size={16} strokeWidth={3} className="sm:w-[18px] sm:h-[18px]" />
-        </motion.button>
+        <Link to="/work">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 sm:px-10 py-4 sm:py-5 bg-[#14161B] text-white rounded-full font-bold uppercase tracking-widest text-[10px] sm:text-[11px] inline-flex items-center gap-2 sm:gap-3 shadow-2xl hover:bg-orange-600 transition-colors mx-auto"
+          >
+            View All Projects <ArrowUpRight size={16} strokeWidth={3} className="sm:w-[18px] sm:h-[18px]" />
+          </motion.button>
+        </Link>
       </div>
 
       {/* Floating Images - Hidden on small screens, visible on md+ */}
