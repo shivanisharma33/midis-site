@@ -132,7 +132,7 @@ const ExperienceSection = () => {
           <motion.div
             initial={{ clipPath: "inset(100% 0 0 0)" }}
             whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-12 sm:mt-20 relative aspect-[16/10] rounded-lg overflow-hidden shadow-2xl will-change-[clip-path]"
           >
