@@ -104,7 +104,7 @@ const HeroSection: React.FC = () => {
 
       {/* SECOND IMAGE (Reveals from Right to Left, Hides from Left to Right with black filter) */}
       <div
-        className="absolute inset-0 transition-all duration-[800ms] ease-out"
+        className="absolute inset-0 transition-all duration-700 ease-out"
         style={{
           clipPath: `inset(0 0 0 ${100 - revealProgress}%)`,
         }}
@@ -129,7 +129,7 @@ const HeroSection: React.FC = () => {
         {/* CENTER HERO TEXT */}
         <div className="flex-1 flex items-center justify-center px-8">
           <div className="text-center w-full mx-auto">
-            <div className={`transition-all duration-[1000ms] ease-out ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <div className={`transition-all duration-1000 ease-out ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <h1
                 className="leading-none uppercase flex flex-col items-center justify-center pt-24 md:pt-40 lg:pt-44"
                 style={{

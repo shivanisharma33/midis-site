@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ChevronDown, ArrowRight, Globe, TrendingUp, Users, BarChart2, Sparkles, Check, Zap, Linkedin } from "lucide-react";
