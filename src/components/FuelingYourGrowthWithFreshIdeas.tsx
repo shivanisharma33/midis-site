@@ -94,7 +94,7 @@ const FuelingYourGrowthWithFreshIdeas: React.FC = () => {
           "
         >
           <img
-            src="/MIDIS/a54a634124ad63442b5f54bade85751d.jpg"
+            src="/MIDIS/afshin-t2y-9iMwtLr1WvI-unsplash.jpg"
             alt="Growth Idea 1"
             className="w-full h-[50vh] sm:h-[60vh] object-cover md:absolute md:top-0 md:left-0 md:h-full md:w-full"
           />

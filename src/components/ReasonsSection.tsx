@@ -14,7 +14,7 @@ const items: ReasonItem[] = [
   {
     number: "01.",
     title: "PROVEN ROI &\nDIGITAL GROWTH",
-    image: "/images/growth (27).avif",
+    image: "/MIDIS/photo-1504868584819-f8e8b4b6d7e3.avif",
   },
   {
     number: "02.",
