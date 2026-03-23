@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Check, Zap, Brain, MessageSquare, Code } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
@@ -67,9 +68,9 @@ const AIHero = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-wrap justify-center gap-6"
           >
-            <button className="px-10 py-5 bg-orange-600 text-white rounded-full font-black text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all flex items-center gap-3 shadow-2xl">
+            <Link to="/contact" className="px-10 py-5 bg-orange-600 text-white rounded-full font-black text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all flex items-center gap-3 shadow-2xl">
               Get an AI Consultation <ArrowUpRight size={18} strokeWidth={3} />
-            </button>
+            </Link>
             <button className="px-10 py-5 border-2 border-white/20 text-white rounded-full font-black text-xs tracking-widest uppercase hover:bg-white/5 transition-all">
               Explore Our Services
             </button>

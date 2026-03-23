@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { ChevronDown, ArrowRight, Globe, TrendingUp, Users, BarChart2, Search, Sparkles, Check, Zap, Linkedin } from "lucide-react";
+import { ChevronDown, ArrowRight, Globe, TrendingUp, Users, BarChart2, Sparkles, Check, Zap, Linkedin } from "lucide-react";
 
 /* ───────────────────────── ANIMATION HELPERS ───────────────────────── */
 
@@ -584,13 +584,13 @@ const StartBuildingCTA = () => {
         </motion.p>
 
         <motion.div variants={fadeUp} custom={3} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-4 px-12 py-5 bg-gradient-to-r from-orange-500 to-amber-400 rounded-full text-black font-black uppercase text-[12px] tracking-[0.2em] hover:shadow-[0_20px_60px_rgba(249,115,22,0.3)] transition-all duration-500 hover:scale-105"
           >
             Book a Free Consultation
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </motion.div>
 
         <motion.p variants={fadeUp} custom={4} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-white/20 text-sm font-medium mt-8">
